@@ -551,12 +551,12 @@ footer {
     </div>
 
     <h2 class="section-title reveal">📸 Мои работы</h2>
-    <div class="gallery reveal">
-        <div class="gallery-item">SPA STUDIO<br>Евгения</div>
-        <div class="gallery-item">DR. MANIFIK<br>Minimal</div>
-        <div class="gallery-item">DR. MANIFIK<br>Premium</div>
-        <div class="gallery-item">IRINA<br>Косметолог</div>
-    </div>
+   <div class="gallery reveal">
+    <a href="https://p6874435-svg.github.io/spa-demo/" target="_blank" class="gallery-item" style="text-decoration:none">SPA STUDIO<br>Евгения</a>
+    <a href="https://p6874435-svg.github.io/manifik-minimal/manifikminimal.html" target="_blank" class="gallery-item" style="text-decoration:none">DR. MANIFIK<br>Minimal</a>
+    <a href="https://p6874435-svg.github.io/manifik-minimal/manifikpremium.html" target="_blank" class="gallery-item" style="text-decoration:none">DR. MANIFIK<br>Premium</a>
+    <a href="https://p6874435-svg.github.io/manifik-minimal/irina_kosmetolog_demo.html" target="_blank" class="gallery-item" style="text-decoration:none">IRINA<br>Косметолог</a>
+</div>
 
     <div class="blog-preview reveal">
         <h3 style="margin-bottom:20px">📝 Блог</h3>
