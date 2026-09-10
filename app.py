@@ -768,5 +768,8 @@ def ask():
         answer = random.choice(['Интересный вопрос! 🤔', 'Ого! Ты меня застал врасплох! 😄', 'Отличный вопрос! Изучу его! 📝', 'Хм, давай подумаем вместе! 🧠'])
     return jsonify({'answer': answer})
 
+import os
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)
