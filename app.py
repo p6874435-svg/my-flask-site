@@ -1,14 +1,33 @@
-from flask import Flask, request, render_template_string, jsonify
+from flask import Flask, request, render_template_string, jsonify, session, redirect, url_for
+from functools import wraps
 import sqlite3
 from datetime import datetime
 import random
 import requests
 
 app = Flask(__name__)
+app.secret_key = 'super-secret-key-change-me-12345'
 
+ADMIN_USER = 'admin'
+ADMIN_PASS = 'daniil2026'
+
+def login_required(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        if not session.get('logged_in'):
+            return redirect('/login')
+        return f(*args, **kwargs)
+    return decorated
+
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        if not session.get('logged_in'):
+            return redirect('/login')
+        return f(*args, **kwargs)
+    return decorated
 # ===== TELEGRAM =====
-BOT_TOKEN = "ТВОЙ_ТОКЕН_СЮДА"
-USER_ID = "ТВОЙ_ID_СЮДА"
+BOT_TOKEN = "8802002179:AAF5ImK4UBwWyUb9hAAYuVNxSRY-_yMp7m8"
+USER_ID = "@Ponomera2"
 
 def send_telegram(name, phone, message):
     if BOT_TOKEN == "ТВОЙ_ТОКЕН_СЮДА":
@@ -709,16 +728,19 @@ def contact():
     return render_template_string(CONTACT_HTML)
 
 @app.route('/admin')
+@login_required
 def admin():
     search = request.args.get('search', '')
     return render_template_string(ADMIN_HTML, messages=get_messages(search), count=get_count(), posts=get_posts(), search=search)
 
 @app.route('/admin/delete/<int:msg_id>')
+@login_required
 def admin_delete(msg_id):
     delete_message(msg_id)
     return admin()
 
 @app.route('/admin/add_post', methods=['POST'])
+@login_required
 def add_post_route():
     title = request.form['title']
     content = request.form['content']
@@ -768,8 +790,59 @@ def ask():
         answer = random.choice(['Интересный вопрос! 🤔', 'Ого! Ты меня застал врасплох! 😄', 'Отличный вопрос! Изучу его! 📝', 'Хм, давай подумаем вместе! 🧠'])
     return jsonify({'answer': answer})
 
+
+# ===== ЛОГИН В АДМИНКУ =====
+LOGIN_HTML = '''<!DOCTYPE html>
+<html><head><title>Вход в админку</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(135deg,#0b0f1a,#1a1a2e);display:flex;justify-content:center;align-items:center;min-height:100vh;padding:20px;color:#fff}
+.card{background:rgba(255,255,255,0.05);padding:50px 40px;border-radius:30px;border:1px solid rgba(255,255,255,0.08);max-width:450px;width:100%;text-align:center}
+.card i{font-size:70px;color:#6c63ff;margin-bottom:20px}
+h1{font-size:28px;margin-bottom:10px}
+.sub{color:#888;margin-bottom:25px;font-size:14px}
+input{width:100%;padding:15px;margin:10px 0;border-radius:12px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:#fff;font-size:16px}
+input:focus{outline:none;border-color:#6c63ff}
+button{width:100%;padding:15px;margin-top:15px;border-radius:12px;border:none;background:linear-gradient(135deg,#6c63ff,#ff6b6b);color:#fff;font-size:17px;font-weight:600;cursor:pointer}
+button:hover{transform:scale(1.02)}
+a{color:#6c63ff;text-decoration:none;display:inline-block;margin-top:15px;font-size:14px}
+.error{background:rgba(255,107,107,0.15);color:#ff6b6b;padding:10px;border-radius:10px;margin-bottom:15px;font-size:14px}
+</style></head>
+<body>
+<div class="card">
+    <i class="fas fa-lock"></i>
+    <h1>Вход в админку</h1>
+    <p class="sub">Только для администратора</p>
+    {% if error %}<div class="error">{{ error }}</div>{% endif %}
+    <form method="POST">
+        <input type="text" name="username" placeholder="Логин" required autofocus>
+        <input type="password" name="password" placeholder="Пароль" required>
+        <button type="submit"><i class="fas fa-sign-in-alt"></i> Войти</button>
+    </form>
+    <a href="/">← На главную</a>
+</div>
+</body></html>'''
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    error = None
+    if request.method == 'POST':
+        if request.form['username'] == ADMIN_USER and request.form['password'] == ADMIN_PASS:
+            session['logged_in'] = True
+            return redirect('/admin')
+        else:
+            error = '❌ Неверный логин или пароль'
+    return render_template_string(LOGIN_HTML, error=error)
+
+@app.route('/logout')
+def logout():
+    session.pop('logged_in', None)
+    return redirect('/')
+
 import os
 
 if __name__ == '__main__':
+    
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=False)
