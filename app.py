@@ -1936,7 +1936,8 @@ body { font-family: 'Inter', sans-serif; background: #faf8f5; color: #2a2a2a; }
 </body>
 </html>
 '''
-
-
 if __name__ == '__main__':
-    app.run(host="127.0.0.1", port=5000, debug=True)
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    host = "0.0.0.0" if os.environ.get("PORT") else "127.0.0.1"
+    app.run(host=host, port=port, debug=(host == "127.0.0.1"))
