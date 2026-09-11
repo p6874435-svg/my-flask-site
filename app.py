@@ -116,15 +116,16 @@ MAIN_HTML = '''
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-    --bg: #0a0a0a;
-    --bg2: #111111;
-    --card: #141414;
-    --text: #f5f5f5;
-    --text2: #a0a0a0;
-    --border: rgba(212,175,55,0.2);
-    --gold: #d4af37;
-    --gold2: #c9a961;
-    --gold-light: #e8c968;
+    --bg: #faf8f5;
+    --bg2: #f5f1eb;
+    --card: #ffffff;
+    --text: #2a2a2a;
+    --text2: #6b6b6b;
+    --border: rgba(184,134,11,0.15);
+    --gold: #b8860b;
+    --gold2: #9a7009;
+    --gold-light: #d4a017;
+    --dark: #1a1a1a;
 }
 
 body {
@@ -137,17 +138,18 @@ body {
 
 /* ===== ШАПКА ===== */
 header {
-    background: linear-gradient(180deg, #0a0a0a 0%, #141414 100%);
+    background: linear-gradient(180deg, #ffffff 0%, #faf8f5 100%);
     padding: 120px 20px 100px;
     text-align: center;
     position: relative;
     overflow: hidden;
+    border-bottom: 1px solid var(--border);
 }
 header::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(212,175,55,0.15), transparent 60%);
+    background: radial-gradient(circle at 50% 50%, rgba(184,134,11,0.08), transparent 60%);
     pointer-events: none;
 }
 header::after {
@@ -166,7 +168,7 @@ header::after {
     color: var(--gold);
     text-transform: uppercase;
     margin-bottom: 25px;
-    font-weight: 500;
+    font-weight: 600;
     animation: fadeIn 1s ease;
 }
 header h1 {
@@ -195,7 +197,7 @@ header p {
 
 /* ===== NAV ===== */
 nav {
-    background: rgba(10,10,10,0.95);
+    background: rgba(255,255,255,0.95);
     backdrop-filter: blur(20px);
     padding: 20px;
     text-align: center;
@@ -203,7 +205,7 @@ nav {
     justify-content: center;
     flex-wrap: wrap;
     gap: 8px;
-    border-bottom: 1px solid rgba(212,175,55,0.1);
+    border-bottom: 1px solid var(--border);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -238,8 +240,9 @@ nav a:hover::after { width: 60%; }
     gap: 6px;
     margin-left: 20px;
     padding: 4px;
-    border: 1px solid rgba(212,175,55,0.2);
+    border: 1px solid var(--border);
     border-radius: 30px;
+    background: white;
 }
 .theme-btn {
     width: 26px; height: 26px;
@@ -250,9 +253,9 @@ nav a:hover::after { width: 60%; }
 }
 .theme-btn:hover { transform: scale(1.15); }
 .theme-btn.active { border-color: var(--gold); }
-.theme-btn[data-theme="dark"] { background: linear-gradient(135deg,#0a0a0a,#d4af37); }
-.theme-btn[data-theme="light"] { background: linear-gradient(135deg,#fff,#d4af37); }
-.theme-btn[data-theme="gold"] { background: linear-gradient(135deg,#0a0a0a,#d4af37); }
+.theme-btn[data-theme="dark"] { background: linear-gradient(135deg,#1a1a1a,#b8860b); }
+.theme-btn[data-theme="light"] { background: linear-gradient(135deg,#fff,#b8860b); }
+.theme-btn[data-theme="gold"] { background: linear-gradient(135deg,#1a1a1a,#b8860b); }
 .theme-btn[data-theme="ocean"] { background: linear-gradient(135deg,#0a1929,#00d4ff); }
 
 /* ===== CONTAINER ===== */
@@ -261,17 +264,9 @@ nav a:hover::after { width: 60%; }
 /* ===== HERO SECTION ===== */
 .hero {
     padding: 100px 0;
-    background: linear-gradient(180deg, #141414 0%, #0a0a0a 100%);
+    background: var(--bg2);
     position: relative;
-}
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(212,175,55,0.08), transparent 70%);
-    pointer-events: none;
+    border-bottom: 1px solid var(--border);
 }
 
 .section-label {
@@ -279,7 +274,7 @@ nav a:hover::after { width: 60%; }
     letter-spacing: 6px;
     color: var(--gold);
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 25px;
     display: block;
 }
@@ -301,17 +296,19 @@ nav a:hover::after { width: 60%; }
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 1px;
-    background: rgba(212,175,55,0.15);
-    border: 1px solid rgba(212,175,55,0.15);
+    background: var(--border);
+    border: 1px solid var(--border);
     margin: 60px 0;
+    border-radius: 8px;
+    overflow: hidden;
 }
 .stat {
-    background: var(--bg);
+    background: white;
     padding: 45px 30px;
     text-align: center;
     transition: 0.4s;
 }
-.stat:hover { background: #141414; }
+.stat:hover { background: var(--bg2); }
 .stat h2 {
     font-family: 'Playfair Display', serif;
     font-size: 52px;
@@ -331,12 +328,14 @@ nav a:hover::after { width: 60%; }
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2px;
-    background: rgba(212,175,55,0.15);
-    border: 1px solid rgba(212,175,55,0.15);
+    background: var(--border);
+    border: 1px solid var(--border);
     margin-top: 50px;
+    border-radius: 8px;
+    overflow: hidden;
 }
 .service {
-    background: var(--bg);
+    background: white;
     padding: 50px 35px;
     transition: 0.5s;
     position: relative;
@@ -347,11 +346,11 @@ nav a:hover::after { width: 60%; }
     position: absolute;
     top: 0; left: -100%;
     width: 100%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(212,175,55,0.05), transparent);
+    background: linear-gradient(90deg, transparent, rgba(184,134,11,0.05), transparent);
     transition: 0.8s;
 }
 .service:hover::before { left: 100%; }
-.service:hover { background: #141414; transform: translateY(-3px); }
+.service:hover { background: #fdfbf7; }
 .service i {
     font-size: 36px;
     color: var(--gold);
@@ -388,10 +387,10 @@ nav a:hover::after { width: 60%; }
     text-align: center;
     padding: 30px;
     text-decoration: none;
-    color: var(--text);
+    color: white;
     position: relative;
     overflow: hidden;
-    border: 1px solid rgba(212,175,55,0.2);
+    border: 1px solid var(--border);
     transition: 0.5s;
     font-family: 'Playfair Display', serif;
     letter-spacing: 3px;
@@ -403,24 +402,23 @@ nav a:hover::after { width: 60%; }
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    background: linear-gradient(135deg, #2a2a2a, #4a4a4a);
     z-index: 0;
     transition: 0.5s;
 }
 .gallery-item:hover::before {
-    background: linear-gradient(135deg, #d4af37, #c9a961);
+    background: linear-gradient(135deg, #b8860b, #d4a017);
 }
 .gallery-item:hover {
     border-color: var(--gold);
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(212,175,55,0.2);
+    box-shadow: 0 20px 40px rgba(184,134,11,0.3);
 }
 .gallery-item span {
     position: relative;
     z-index: 1;
     transition: 0.3s;
 }
-.gallery-item:hover span { color: #0a0a0a; }
 .gallery-item small {
     position: relative;
     z-index: 1;
@@ -432,7 +430,6 @@ nav a:hover::after { width: 60%; }
     color: inherit;
     transition: 0.3s;
 }
-.gallery-item:hover small { color: #0a0a0a; opacity: 0.9; }
 
 /* ===== ЦЕНЫ ===== */
 .pricing {
@@ -442,16 +439,17 @@ nav a:hover::after { width: 60%; }
     margin-top: 50px;
 }
 .price-card {
-    background: var(--card);
+    background: white;
     padding: 50px 40px;
-    border: 1px solid rgba(212,175,55,0.2);
+    border: 1px solid var(--border);
     transition: 0.5s;
     position: relative;
+    border-radius: 8px;
 }
 .price-card:hover {
     transform: translateY(-10px);
     border-color: var(--gold);
-    box-shadow: 0 30px 60px rgba(212,175,55,0.15);
+    box-shadow: 0 30px 60px rgba(184,134,11,0.15);
 }
 .price-card.popular::before {
     content: '★ ПОПУЛЯРНЫЙ';
@@ -460,11 +458,12 @@ nav a:hover::after { width: 60%; }
     left: 50%;
     transform: translateX(-50%);
     background: var(--gold);
-    color: #0a0a0a;
+    color: white;
     padding: 5px 20px;
     font-size: 10px;
     letter-spacing: 3px;
     font-weight: 700;
+    border-radius: 20px;
 }
 .price-card h3 {
     font-family: 'Playfair Display', serif;
@@ -487,7 +486,7 @@ nav a:hover::after { width: 60%; }
 .price-card li {
     padding: 12px 0;
     color: var(--text2);
-    border-bottom: 1px solid rgba(212,175,55,0.1);
+    border-bottom: 1px solid var(--border);
     font-size: 15px;
 }
 .price-card li:last-child { border-bottom: none; }
@@ -505,11 +504,12 @@ nav a:hover::after { width: 60%; }
     margin-top: 50px;
 }
 .review {
-    background: var(--card);
+    background: white;
     padding: 40px;
-    border: 1px solid rgba(212,175,55,0.15);
+    border: 1px solid var(--border);
     position: relative;
     transition: 0.4s;
+    border-radius: 8px;
 }
 .review::before {
     content: '"';
@@ -518,12 +518,13 @@ nav a:hover::after { width: 60%; }
     font-family: 'Playfair Display', serif;
     font-size: 80px;
     color: var(--gold);
-    opacity: 0.3;
+    opacity: 0.25;
     line-height: 1;
 }
 .review:hover {
     border-color: var(--gold);
     transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(184,134,11,0.1);
 }
 .review p {
     color: var(--text2);
@@ -536,7 +537,7 @@ nav a:hover::after { width: 60%; }
 }
 .review .author {
     color: var(--gold);
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 1px;
     font-size: 14px;
 }
@@ -552,11 +553,12 @@ nav a:hover::after { width: 60%; }
     margin-top: 50px;
 }
 .faq-item {
-    background: var(--card);
-    border: 1px solid rgba(212,175,55,0.15);
+    background: white;
+    border: 1px solid var(--border);
     margin-bottom: 15px;
     transition: 0.3s;
     cursor: pointer;
+    border-radius: 8px;
 }
 .faq-item:hover { border-color: var(--gold); }
 .faq-question {
@@ -605,6 +607,7 @@ nav a:hover::after { width: 60%; }
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    border-radius: 4px;
 }
 .btn::before {
     content: '';
@@ -616,19 +619,18 @@ nav a:hover::after { width: 60%; }
     z-index: 0;
 }
 .btn:hover::before { left: 0; }
-.btn:hover { color: #0a0a0a; }
+.btn:hover { color: white; }
 .btn span { position: relative; z-index: 1; }
 
 /* ===== FOOTER ===== */
 footer {
-    background: #000;
+    background: var(--dark);
     padding: 60px 0 30px;
     text-align: center;
-    border-top: 1px solid rgba(212,175,55,0.1);
     margin-top: 80px;
 }
 footer p {
-    color: var(--text2);
+    color: #999;
     font-size: 13px;
     letter-spacing: 2px;
     margin-bottom: 20px;
@@ -646,22 +648,22 @@ footer p {
 
 /* ===== КОНТАКТЫ ===== */
 .contact-section {
-    background: linear-gradient(135deg, #0a0a0a, #141414);
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
     padding: 80px 0;
     text-align: center;
-    border-top: 1px solid rgba(212,175,55,0.1);
-    border-bottom: 1px solid rgba(212,175,55,0.1);
     position: relative;
+    color: white;
 }
 .contact-section h2 {
     font-family: 'Playfair Display', serif;
     font-size: 48px;
     font-weight: 400;
     margin-bottom: 20px;
+    color: white;
 }
-.contact-section h2 span { color: var(--gold); font-style: italic; }
+.contact-section h2 span { color: var(--gold-light); font-style: italic; }
 .contact-section p {
-    color: var(--text2);
+    color: #b0b0b0;
     margin-bottom: 40px;
     font-size: 16px;
 }
@@ -677,16 +679,17 @@ footer p {
     gap: 12px;
     padding: 18px 35px;
     border: 1px solid var(--gold);
-    color: var(--gold);
+    color: var(--gold-light);
     text-decoration: none;
     font-size: 13px;
     letter-spacing: 3px;
     text-transform: uppercase;
     transition: 0.4s;
+    border-radius: 4px;
 }
 .contact-btn:hover {
     background: var(--gold);
-    color: #0a0a0a;
+    color: white;
 }
 .contact-btn i { font-size: 16px; }
 
@@ -703,6 +706,7 @@ footer p {
     nav a { font-size: 12px; padding: 8px 12px; }
     .theme-switcher { margin-left: 0; margin-top: 10px; }
     .contact-section h2 { font-size: 32px; }
+    .gallery-item { height: 200px; font-size: 14px; }
 }
 </style>
 </head>
@@ -723,14 +727,13 @@ footer p {
     <a href="/admin">Админ</a>
     <a href="/chat">Чат-бот</a>
     <div class="theme-switcher">
-        <button class="theme-btn active" data-theme="dark" onclick="setTheme('dark')" title="Тёмная">🌙</button>
-        <button class="theme-btn" data-theme="light" onclick="setTheme('light')" title="Светлая">☀️</button>
+        <button class="theme-btn active" data-theme="light" onclick="setTheme('light')" title="Светлая">☀️</button>
+        <button class="theme-btn" data-theme="dark" onclick="setTheme('dark')" title="Тёмная">🌙</button>
         <button class="theme-btn" data-theme="gold" onclick="setTheme('gold')" title="Золотая">👑</button>
         <button class="theme-btn" data-theme="ocean" onclick="setTheme('ocean')" title="Океан">🌊</button>
     </div>
 </nav>
 
-<!-- HERO SECTION -->
 <section class="hero">
     <div class="container">
         <div class="stats">
@@ -742,63 +745,32 @@ footer p {
     </div>
 </section>
 
-<!-- УСЛУГИ -->
 <section class="section">
     <div class="container">
         <span class="section-label">Услуги</span>
         <h2 class="section-title">Что я <span>делаю</span></h2>
         <div class="services">
-            <div class="service">
-                <i class="fas fa-code"></i>
-                <h3>Сайты на Python</h3>
-                <p>Премиум-сайты с админкой, базой данных и современным дизайном</p>
-            </div>
-            <div class="service">
-                <i class="fas fa-robot"></i>
-                <h3>Telegram-боты</h3>
-                <p>Автоматизация бизнеса через Telegram. Приём заявок, уведомления</p>
-            </div>
-            <div class="service">
-                <i class="fas fa-gem"></i>
-                <h3>Премиум-дизайн</h3>
-                <p>Элегантные решения с анимациями и вниманием к деталям</p>
-            </div>
-            <div class="service">
-                <i class="fas fa-database"></i>
-                <h3>Веб-приложения</h3>
-                <p>CRM-системы, личные кабинеты, дашборды с аналитикой</p>
-            </div>
+            <div class="service"><i class="fas fa-code"></i><h3>Сайты на Python</h3><p>Премиум-сайты с админкой, базой данных и современным дизайном</p></div>
+            <div class="service"><i class="fas fa-robot"></i><h3>Telegram-боты</h3><p>Автоматизация бизнеса через Telegram. Приём заявок, уведомления</p></div>
+            <div class="service"><i class="fas fa-gem"></i><h3>Премиум-дизайн</h3><p>Элегантные решения с анимациями и вниманием к деталям</p></div>
+            <div class="service"><i class="fas fa-database"></i><h3>Веб-приложения</h3><p>CRM-системы, личные кабинеты, дашборды с аналитикой</p></div>
         </div>
     </div>
 </section>
 
-<!-- ПОРТФОЛИО -->
 <section class="section">
     <div class="container">
         <span class="section-label">Портфолио</span>
         <h2 class="section-title">Мои <span>работы</span></h2>
         <div class="gallery">
-            <a href="https://p6874435-svg.github.io/spa-demo/" target="_blank" class="gallery-item">
-                <span>Студия Евгении</span>
-                <small>SPA · МАССАЖ</small>
-            </a>
-            <a href="https://p6874435-svg.github.io/manifik-minimal/manifikminimal.html" target="_blank" class="gallery-item">
-                <span>Dr. Manifik</span>
-                <small>КОСМЕТОЛОГИЯ · MINIMAL</small>
-            </a>
-            <a href="https://p6874435-svg.github.io/manifik-minimal/manifikpremium.html" target="_blank" class="gallery-item">
-                <span>Dr. Manifik Premium</span>
-                <small>КОСМЕТОЛОГИЯ · PREMIUM</small>
-            </a>
-            <a href="https://p6874435-svg.github.io/manifik-minimal/irina_kosmetolog_demo.html" target="_blank" class="gallery-item">
-                <span>Ирина</span>
-                <small>КОСМЕТОЛОГ · ЯЛТА</small>
-            </a>
+            <a href="https://p6874435-svg.github.io/spa-demo/" target="_blank" class="gallery-item"><span>Студия Евгении</span><small>SPA · МАССАЖ</small></a>
+            <a href="https://p6874435-svg.github.io/manifik-minimal/manifikminimal.html" target="_blank" class="gallery-item"><span>Dr. Manifik</span><small>КОСМЕТОЛОГИЯ · MINIMAL</small></a>
+            <a href="https://p6874435-svg.github.io/manifik-minimal/manifikpremium.html" target="_blank" class="gallery-item"><span>Dr. Manifik Premium</span><small>КОСМЕТОЛОГИЯ · PREMIUM</small></a>
+            <a href="https://p6874435-svg.github.io/manifik-minimal/irina_kosmetolog_demo.html" target="_blank" class="gallery-item"><span>Ирина</span><small>КОСМЕТОЛОГ · ЯЛТА</small></a>
         </div>
     </div>
 </section>
 
-<!-- ЦЕНЫ -->
 <section class="section">
     <div class="container">
         <span class="section-label">Стоимость</span>
@@ -807,114 +779,60 @@ footer p {
             <div class="price-card">
                 <h3>Лендинг</h3>
                 <div class="price">5 000 ₽</div>
-                <ul>
-                    <li><i class="fas fa-check"></i>Одностраничный сайт</li>
-                    <li><i class="fas fa-check"></i>Адаптивный дизайн</li>
-                    <li><i class="fas fa-check"></i>Форма заявки</li>
-                    <li><i class="fas fa-check"></i>Срок: 2-3 дня</li>
-                </ul>
+                <ul><li><i class="fas fa-check"></i>Одностраничный сайт</li><li><i class="fas fa-check"></i>Адаптивный дизайн</li><li><i class="fas fa-check"></i>Форма заявки</li><li><i class="fas fa-check"></i>Срок: 2-3 дня</li></ul>
                 <a href="/contact" class="btn"><span>Заказать</span></a>
             </div>
             <div class="price-card popular">
                 <h3>Сайт + Админка</h3>
                 <div class="price">15 000 ₽</div>
-                <ul>
-                    <li><i class="fas fa-check"></i>Многостраничный сайт</li>
-                    <li><i class="fas fa-check"></i>Админ-панель</li>
-                    <li><i class="fas fa-check"></i>База данных</li>
-                    <li><i class="fas fa-check"></i>Срок: 5-7 дней</li>
-                </ul>
+                <ul><li><i class="fas fa-check"></i>Многостраничный сайт</li><li><i class="fas fa-check"></i>Админ-панель</li><li><i class="fas fa-check"></i>База данных</li><li><i class="fas fa-check"></i>Срок: 5-7 дней</li></ul>
                 <a href="/contact" class="btn"><span>Заказать</span></a>
             </div>
             <div class="price-card">
                 <h3>Сайт + Бот</h3>
                 <div class="price">25 000 ₽</div>
-                <ul>
-                    <li><i class="fas fa-check"></i>Всё из «+ Админка»</li>
-                    <li><i class="fas fa-check"></i>Telegram-бот</li>
-                    <li><i class="fas fa-check"></i>Уведомления в TG</li>
-                    <li><i class="fas fa-check"></i>Срок: 7-10 дней</li>
-                </ul>
+                <ul><li><i class="fas fa-check"></i>Всё из «+ Админка»</li><li><i class="fas fa-check"></i>Telegram-бот</li><li><i class="fas fa-check"></i>Уведомления в TG</li><li><i class="fas fa-check"></i>Срок: 7-10 дней</li></ul>
                 <a href="/contact" class="btn"><span>Заказать</span></a>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ОТЗЫВЫ -->
 <section class="section">
     <div class="container">
         <span class="section-label">Отзывы</span>
         <h2 class="section-title">Что говорят <span>клиенты</span></h2>
         <div class="reviews">
-            <div class="review">
-                <div class="stars">★★★★★</div>
-                <p>Даниил сделал сайт для моей студии за 3 дня. Работает быстро, красиво и удобно. Клиенты довольны!</p>
-                <div class="author">Евгения И. · Студия SPA</div>
-            </div>
-            <div class="review">
-                <div class="stars">★★★★★</div>
-                <p>Отличный сайт для косметологии. Всё сделано профессионально, с вниманием к деталям. Рекомендую!</p>
-                <div class="author">Ирина К. · Косметолог</div>
-            </div>
-            <div class="review">
-                <div class="stars">★★★★★</div>
-                <p>Заказывал сайт для клиники. Результат превзошёл ожидания! Сайт загружается быстро, выглядит премиально.</p>
-                <div class="author">Дмитрий М. · Клиника</div>
-            </div>
+            <div class="review"><div class="stars">★★★★★</div><p>Даниил сделал сайт для моей студии за 3 дня. Работает быстро, красиво и удобно. Клиенты довольны!</p><div class="author">Евгения И. · Студия SPA</div></div>
+            <div class="review"><div class="stars">★★★★★</div><p>Отличный сайт для косметологии. Всё сделано профессионально, с вниманием к деталям. Рекомендую!</p><div class="author">Ирина К. · Косметолог</div></div>
+            <div class="review"><div class="stars">★★★★★</div><p>Заказывал сайт для клиники. Результат превзошёл ожидания! Сайт загружается быстро, выглядит премиально.</p><div class="author">Дмитрий М. · Клиника</div></div>
         </div>
     </div>
 </section>
 
-<!-- FAQ -->
 <section class="section">
     <div class="container">
         <span class="section-label">FAQ</span>
         <h2 class="section-title">Частые <span>вопросы</span></h2>
         <div class="faq">
-            <div class="faq-item" onclick="toggleFaq(this)">
-                <div class="faq-question">Сколько стоит сайт? <i class="fas fa-plus"></i></div>
-                <div class="faq-answer">Цены начинаются от 5 000 ₽ за лендинг. Полный сайт с админкой — от 15 000 ₽. Сайт с Telegram-ботом — от 25 000 ₽.</div>
-            </div>
-            <div class="faq-item" onclick="toggleFaq(this)">
-                <div class="faq-question">Сколько времени делается сайт? <i class="fas fa-plus"></i></div>
-                <div class="faq-answer">Лендинг — 2-3 дня. Сайт с админкой — 5-7 дней. Сайт с ботом — 7-10 дней. Точные сроки обсудим после уточнения задачи.</div>
-            </div>
-            <div class="faq-item" onclick="toggleFaq(this)">
-                <div class="faq-question">Что входит в стоимость? <i class="fas fa-plus"></i></div>
-                <div class="faq-answer">Дизайн, разработка, адаптив под телефоны, запуск на хостинге, обучение по использованию админки. Домен и хостинг оплачиваются отдельно (~500 ₽/год).</div>
-            </div>
-            <div class="faq-item" onclick="toggleFaq(this)">
-                <div class="faq-question">Можно потом доработать сайт? <i class="fas fa-plus"></i></div>
-                <div class="faq-answer">Да, конечно! Я всегда на связи. Мелкие доработки — бесплатно в течение месяца после сдачи. Крупные изменения — по договорённости.</div>
-            </div>
-            <div class="faq-item" onclick="toggleFaq(this)">
-                <div class="faq-question">Как происходит оплата? <i class="fas fa-plus"></i></div>
-                <div class="faq-answer">50% предоплата, 50% после сдачи работы. Работаю по договору или самозанятости. Все чеки и документы предоставляю.</div>
-            </div>
-            <div class="faq-item" onclick="toggleFaq(this)">
-                <div class="faq-question">Есть ли гарантия? <i class="fas fa-plus"></i></div>
-                <div class="faq-answer">Да, месяц гарантии на все работы. Если что-то сломается — исправлю бесплатно. Также помогаю с настройкой после сдачи.</div>
-            </div>
+            <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-question">Сколько стоит сайт? <i class="fas fa-plus"></i></div><div class="faq-answer">Цены начинаются от 5 000 ₽ за лендинг. Полный сайт с админкой — от 15 000 ₽. Сайт с Telegram-ботом — от 25 000 ₽.</div></div>
+            <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-question">Сколько времени делается сайт? <i class="fas fa-plus"></i></div><div class="faq-answer">Лендинг — 2-3 дня. Сайт с админкой — 5-7 дней. Сайт с ботом — 7-10 дней. Точные сроки обсудим после уточнения задачи.</div></div>
+            <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-question">Что входит в стоимость? <i class="fas fa-plus"></i></div><div class="faq-answer">Дизайн, разработка, адаптив под телефоны, запуск на хостинге, обучение по использованию админки. Домен и хостинг оплачиваются отдельно (~500 ₽/год).</div></div>
+            <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-question">Можно потом доработать сайт? <i class="fas fa-plus"></i></div><div class="faq-answer">Да, конечно! Я всегда на связи. Мелкие доработки — бесплатно в течение месяца после сдачи. Крупные изменения — по договорённости.</div></div>
+            <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-question">Как происходит оплата? <i class="fas fa-plus"></i></div><div class="faq-answer">50% предоплата, 50% после сдачи работы. Работаю по договору или самозанятости. Все чеки и документы предоставляю.</div></div>
+            <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-question">Есть ли гарантия? <i class="fas fa-plus"></i></div><div class="faq-answer">Да, месяц гарантии на все работы. Если что-то сломается — исправлю бесплатно. Также помогаю с настройкой после сдачи.</div></div>
         </div>
     </div>
 </section>
 
-<!-- КОНТАКТЫ -->
 <section class="contact-section">
     <div class="container">
         <h2>Готовы обсудить <span>проект?</span></h2>
         <p>Напишите мне — обсудим задачу, сроки и стоимость</p>
         <div class="contact-buttons">
-            <a href="https://t.me/ponomera2" target="_blank" class="contact-btn">
-                <i class="fab fa-telegram"></i> Telegram
-            </a>
-            <a href="mailto:ponomarenkodana410@gmail.com" class="contact-btn">
-                <i class="fas fa-envelope"></i> Email
-            </a>
-            <a href="/contact" class="contact-btn">
-                <i class="fas fa-paper-plane"></i> Оставить заявку
-            </a>
+            <a href="https://t.me/ponomera2" target="_blank" class="contact-btn"><i class="fab fa-telegram"></i> Telegram</a>
+            <a href="mailto:ponomarenkodana410@gmail.com" class="contact-btn"><i class="fas fa-envelope"></i> Email</a>
+            <a href="/contact" class="contact-btn"><i class="fas fa-paper-plane"></i> Оставить заявку</a>
         </div>
     </div>
 </section>
@@ -932,23 +850,32 @@ footer p {
 </footer>
 
 <script>
-// Переключение темы
 function setTheme(theme) {
-    document.body.className = 'theme-' + theme;
+    if (theme === 'light') {
+        document.body.style.background = '#faf8f5';
+        document.body.style.color = '#2a2a2a';
+    } else if (theme === 'dark') {
+        document.body.style.background = '#0a0a0a';
+        document.body.style.color = '#f5f5f5';
+    } else if (theme === 'gold') {
+        document.body.style.background = '#0a0a0a';
+        document.body.style.color = '#f5f5f5';
+    } else if (theme === 'ocean') {
+        document.body.style.background = '#0a1929';
+        document.body.style.color = '#e3f2fd';
+    }
     document.querySelectorAll('.theme-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.theme === theme);
     });
     localStorage.setItem('site-theme', theme);
 }
-const savedTheme = localStorage.getItem('site-theme') || 'dark';
+const savedTheme = localStorage.getItem('site-theme') || 'light';
 setTheme(savedTheme);
 
-// FAQ
 function toggleFaq(el) {
     el.classList.toggle('active');
 }
 
-// Счётчик
 const counters = document.querySelectorAll('[data-count]');
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
