@@ -363,30 +363,7 @@ footer p { color: #999; font-size: 13px; letter-spacing: 2px; margin-bottom: 20p
     </div>
 </section>
 
-<section class="section">
-    <div class="container">
-        <span class="section-label reveal">Отзывы</span>
-        <h2 class="section-title reveal">Что говорят <span>клиенты</span></h2>
-        <div class="reviews">
-            <div class="review reveal reveal-delay-1"><div class="stars">★★★★★</div><p>Даниил сделал сайт для моей студии за 3 дня. Работает быстро, красиво и удобно. Клиенты довольны!</p><div class="author">Евгения И. · Студия SPA</div></div>
-            <div class="review reveal reveal-delay-2"><div class="stars">★★★★★</div><p>Отличный сайт для косметологии. Всё сделано профессионально, с вниманием к деталям. Рекомендую!</p><div class="author">Ирина К. · Косметолог</div></div>
-            <div class="review reveal reveal-delay-3"><div class="stars">★★★★★</div><p>Заказывал сайт для клиники. Результат превзошёл ожидания! Сайт загружается быстро, выглядит премиально.</p><div class="author">Дмитрий М. · Клиника</div></div>
-        </div>
-    </div>
-</section>
-
-  <section class="section">
-    <div class="container">
-        <span class="section-label reveal">FAQ</span>
-        <h2 class="section-title reveal">Частые <span>вопросы</span></h2>
-        <div class="faq">
-            <div class="faq-item reveal reveal-delay-1" onclick="toggleFaq(this)"><div class="faq-question">Сколько стоит сайт? <i class="fas fa-plus"></i></div><div class="faq-answer">Цены начинаются от 5 000 ₽ за лендинг. Полный сайт с админкой — от 15 000 ₽. Сайт с Telegram-ботом — от 25 000 ₽.</div></div>
-            <div class="faq-item reveal reveal-delay-2" onclick="toggleFaq(this)"><div class="faq-question">Сколько времени делается сайт? <i class="fas fa-plus"></i></div><div class="faq-answer">Лендинг — 2-3 дня. Сайт с админкой — 5-7 дней. Сайт с ботом — 7-10 дней.</div></div>
-            <div class="faq-item reveal reveal-delay-3" onclick="toggleFaq(this)"><div class="faq-question">Что входит в стоимость? <i class="fas fa-plus"></i></div><div class="faq-answer">Дизайн, разработка, адаптив под телефоны, запуск на хостинге, обучение по админке.</div></div>
-            <div class="faq-item reveal reveal-delay-4" onclick="toggleFaq(this)"><div class="faq-question">Можно потом доработать сайт? <i class="fas fa-plus"></i></div><div class="faq-answer">Да, конечно! Мелкие доработки — бесплатно в течение месяца. Крупные — по договорённости.</div></div>
-            <div class="faq-item reveal reveal-delay-1" onclick="toggleFaq(this)"><div class="faq-question">Как происходит оплата? <i class="fas fa-plus"></i></div><div class="faq-answer">50% предоплата, 50% после сдачи. Работаю по договору или самозанятости.</div></div>
-            <div class="faq-item reveal reveal-delay-2" onclick="toggleFaq(this)"><div class="faq-question">Есть ли гарантия? <i class="fas fa-plus"></i></div><div class="faq-answer">Да, месяц гарантии на все работы. Если что-то сломается — исправлю бесплатно.</div></div>
-        </div>
+</div>
     </div>
 </section>
 
