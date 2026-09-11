@@ -360,8 +360,6 @@ footer p { color: #999; font-size: 13px; letter-spacing: 2px; margin-bottom: 20p
         <div style="text-align:center; margin-top:60px" class="reveal">
             <a href="/calculator" class="btn"><span>Рассчитать стоимость →</span></a>
         </div>
-    </div>
-</section>
 
 <section class="contact-section">
     <div class="container">
