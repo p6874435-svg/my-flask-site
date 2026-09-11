@@ -365,33 +365,6 @@ footer p { color: #999; font-size: 13px; letter-spacing: 2px; margin-bottom: 20p
 
 <section class="section">
     <div class="container">
-        <span class="section-label reveal">Стоимость</span>
-        <h2 class="section-title reveal">Мои <span>цены</span></h2>
-        <div class="pricing">
-            <div class="price-card reveal reveal-delay-1">
-                <h3>Лендинг</h3>
-                <div class="price">5 000 ₽</div>
-                <ul><li><i class="fas fa-check"></i>Одностраничный сайт</li><li><i class="fas fa-check"></i>Адаптивный дизайн</li><li><i class="fas fa-check"></i>Форма заявки</li><li><i class="fas fa-check"></i>Срок: 2-3 дня</li></ul>
-                <a href="/contact" class="btn"><span>Заказать</span></a>
-            </div>
-            <div class="price-card popular reveal reveal-delay-2">
-                <h3>Сайт + Админка</h3>
-                <div class="price">15 000 ₽</div>
-                <ul><li><i class="fas fa-check"></i>Многостраничный сайт</li><li><i class="fas fa-check"></i>Админ-панель</li><li><i class="fas fa-check"></i>База данных</li><li><i class="fas fa-check"></i>Срок: 5-7 дней</li></ul>
-                <a href="/contact" class="btn"><span>Заказать</span></a>
-            </div>
-            <div class="price-card reveal reveal-delay-3">
-                <h3>Сайт + Бот</h3>
-                <div class="price">25 000 ₽</div>
-                <ul><li><i class="fas fa-check"></i>Всё из «+ Админка»</li><li><i class="fas fa-check"></i>Telegram-бот</li><li><i class="fas fa-check"></i>Уведомления в TG</li><li><i class="fas fa-check"></i>Срок: 7-10 дней</li></ul>
-                <a href="/contact" class="btn"><span>Заказать</span></a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container">
         <span class="section-label reveal">Отзывы</span>
         <h2 class="section-title reveal">Что говорят <span>клиенты</span></h2>
         <div class="reviews">
@@ -1994,8 +1967,6 @@ body { font-family: 'Inter', sans-serif; background: #faf8f5; color: #2a2a2a; }
 </html>
 '''
 
+
 if __name__ == '__main__':
-    import os
-    port = int(os.environ.get("PORT", 5000))
-    host = "0.0.0.0" if os.environ.get("PORT") else "127.0.0.1"
-    app.run(host=host, port=port, debug=(host == "127.0.0.1"))
+    app.run(host="127.0.0.1", port=5000, debug=True)
