@@ -363,10 +363,6 @@ footer p { color: #999; font-size: 13px; letter-spacing: 2px; margin-bottom: 20p
     </div>
 </section>
 
-</div>
-    </div>
-</section>
-
 <section class="contact-section">
     <div class="container">
         <h2 class="reveal">Готовы обсудить <span>проект?</span></h2>
