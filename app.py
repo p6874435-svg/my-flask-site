@@ -720,6 +720,7 @@ footer p {
 
 <nav>
     <a href="/">Главная</a>
+    <a href="/services">Услуги</a>
     <a href="/portfolio">Портфолио</a>
     <a href="/pricing">Цены</a>
     <a href="/blog">Блог</a>
@@ -756,6 +757,9 @@ footer p {
             <div class="service"><i class="fas fa-database"></i><h3>Веб-приложения</h3><p>CRM-системы, личные кабинеты, дашборды с аналитикой</p></div>
         </div>
     </div>
+    <div style="text-align:center; margin-top:50px">
+    <a href="/services" class="btn"><span>Все услуги →</span></a>
+</div>
 </section>
 
 <section class="section">
@@ -903,6 +907,358 @@ ABOUT_HTML = '''<!DOCTYPE html><html><head><title>О нас</title><link rel="st
 
 PORTFOLIO_HTML = '''<!DOCTYPE html><html><head><title>Портфолио</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><style>*{margin:0;padding:0;box-sizing:border-box}body{background:#0b0f1a;color:#fff;font-family:Segoe UI,Arial,sans-serif;padding:40px 20px}.container{max-width:1100px;margin:0 auto}.card{background:rgba(255,255,255,0.05);padding:40px;border-radius:25px;border:1px solid rgba(255,255,255,0.08)}h1{text-align:center;font-size:42px;margin-bottom:15px}.sub{text-align:center;color:#aaa;margin-bottom:40px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px}.item{display:block;background:rgba(255,255,255,0.05);border-radius:20px;overflow:hidden;transition:0.3s;border:1px solid rgba(255,255,255,0.05);text-decoration:none;color:inherit}.item:hover{transform:translateY(-10px);border-color:#6c63ff}.preview{height:200px;display:flex;align-items:center;justify-content:center;font:600 22px Georgia;color:#fff;letter-spacing:3px}.item:nth-child(1) .preview{background:linear-gradient(135deg,#d8c0ad,#9d765e)}.item:nth-child(2) .preview{background:linear-gradient(135deg,#eaded4,#c3a28c)}.item:nth-child(3) .preview{background:linear-gradient(135deg,#cfc2b4,#8f8173)}.item:nth-child(4) .preview{background:linear-gradient(135deg,#e8ddd5,#bda18e)}.info{padding:25px}.info h3{font-size:20px;margin-bottom:10px}.info p{color:#aaa;font-size:14px;margin-bottom:15px}.tags span{display:inline-block;background:rgba(108,99,255,0.15);color:#9d94ff;padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600;margin-right:5px}.back{color:#6c63ff;text-decoration:none;display:block;margin-top:20px;text-align:center}</style></head><body><div class="container"><div class="card"><h1>💼 Мои работы</h1><p class="sub">Демо-сайты, которые я сделал</p><div class="grid"><a href="https://p6874435-svg.github.io/spa-demo/" target="_blank" class="item"><div class="preview">SPA STUDIO</div><div class="info"><h3>Студия Евгении</h3><p>Сайт студии SPA-массажа</p><div class="tags"><span>Сайт</span><span>SPA</span></div></div></a><a href="https://p6874435-svg.github.io/manifik-minimal/manifikminimal.html" target="_blank" class="item"><div class="preview">MANIFIK</div><div class="info"><h3>Dr. Manifik — Minimal</h3><p>Клиника косметологии</p><div class="tags"><span>Сайт</span><span>Медицина</span></div></div></a><a href="https://p6874435-svg.github.io/manifik-minimal/manifikpremium.html" target="_blank" class="item"><div class="preview">PREMIUM</div><div class="info"><h3>Dr. Manifik — Premium</h3><p>Премиум-версия сайта</p><div class="tags"><span>Сайт</span><span>Премиум</span></div></div></a><a href="https://p6874435-svg.github.io/manifik-minimal/irina_kosmetolog_demo.html" target="_blank" class="item"><div class="preview">IRINA</div><div class="info"><h3>Ирина — косметолог</h3><p>Сайт косметолога из Ялты</p><div class="tags"><span>Сайт</span><span>Косметология</span></div></div></a></div><a href="/" class="back">← На главную</a></div></div></body></html>'''
 
+SERVICES_HTML = '''
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Услуги — Даниил</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Inter', sans-serif;
+    background: #faf8f5;
+    color: #2a2a2a;
+    line-height: 1.6;
+}
+
+/* Шапка */
+.page-header {
+    background: linear-gradient(180deg, #ffffff 0%, #faf8f5 100%);
+    padding: 80px 20px 60px;
+    text-align: center;
+    border-bottom: 1px solid rgba(184,134,11,0.15);
+    position: relative;
+}
+.page-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 200px; height: 1px;
+    background: linear-gradient(90deg, transparent, #b8860b, transparent);
+}
+.back-link {
+    position: absolute;
+    top: 30px; left: 30px;
+    color: #b8860b;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: 0.3s;
+}
+.back-link:hover { color: #d4a017; }
+.top-label {
+    font-size: 11px;
+    letter-spacing: 6px;
+    color: #b8860b;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 400;
+    letter-spacing: -2px;
+    color: #2a2a2a;
+    margin-bottom: 15px;
+}
+h1 span { color: #b8860b; font-style: italic; }
+.subtitle {
+    color: #6b6b6b;
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Секции услуг */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 30px; }
+
+.service-block {
+    padding: 80px 0;
+    border-bottom: 1px solid rgba(184,134,11,0.1);
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 40px;
+    align-items: start;
+}
+.service-block:last-child { border-bottom: none; }
+
+.service-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    color: #b8860b;
+    opacity: 0.4;
+    line-height: 1;
+    font-style: italic;
+}
+.service-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #2a2a2a;
+}
+.service-content h2 i {
+    color: #b8860b;
+    font-size: 32px;
+    margin-right: 15px;
+}
+.service-content > p {
+    color: #6b6b6b;
+    font-size: 17px;
+    margin-bottom: 30px;
+    max-width: 700px;
+}
+.features-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 15px;
+    margin: 25px 0;
+}
+.feature-item {
+    padding: 15px 0;
+    color: #2a2a2a;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.feature-item i {
+    color: #b8860b;
+    font-size: 14px;
+}
+
+.service-price {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 30px;
+    background: #1a1a1a;
+    color: #d4a017;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 500;
+    border-radius: 4px;
+}
+.service-price small {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: #999;
+    display: block;
+    letter-spacing: 2px;
+    margin-top: 5px;
+    font-weight: 400;
+}
+
+/* CTA */
+.cta {
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    padding: 80px 20px;
+    text-align: center;
+    color: white;
+    margin-top: 40px;
+}
+.cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+.cta h2 span { color: #d4a017; font-style: italic; }
+.cta p {
+    color: #b0b0b0;
+    font-size: 16px;
+    margin-bottom: 35px;
+}
+.cta-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.btn-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 40px;
+    background: #b8860b;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: 0.3s;
+    border-radius: 4px;
+}
+.btn-gold:hover {
+    background: #d4a017;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(184,134,11,0.4);
+}
+.btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 40px;
+    background: transparent;
+    color: #d4a017;
+    border: 1px solid #b8860b;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: 0.3s;
+    border-radius: 4px;
+}
+.btn-outline:hover {
+    background: #b8860b;
+    color: white;
+}
+
+/* Footer */
+footer {
+    background: #1a1a1a;
+    padding: 40px;
+    text-align: center;
+    color: #999;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 48px; }
+    .service-block { grid-template-columns: 1fr; gap: 20px; padding: 50px 0; }
+    .service-num { font-size: 32px; }
+    .service-content h2 { font-size: 30px; }
+    .cta h2 { font-size: 32px; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+    <a href="/" class="back-link">← Главная</a>
+    <div class="top-label">Даниил · Веб-разработчик</div>
+    <h1>Мои <span>услуги</span></h1>
+    <p class="subtitle">Полный спектр услуг по созданию сайтов, ботов и веб-приложений</p>
+</div>
+
+<div class="container">
+
+    <!-- Услуга 1 -->
+    <div class="service-block">
+        <div class="service-num">01</div>
+        <div class="service-content">
+            <h2><i class="fas fa-code"></i> Сайты на Python</h2>
+            <p>Создаю современные сайты на Flask: от простых лендингов до многостраничных корпоративных сайтов с админ-панелью и базой данных.</p>
+            <div class="features-list">
+                <div class="feature-item"><i class="fas fa-check"></i> Лендинги и визитки</div>
+                <div class="feature-item"><i class="fas fa-check"></i> Корпоративные сайты</div>
+                <div class="feature-item"><i class="fas fa-check"></i> Админ-панель для управления</div>
+                <div class="feature-item"><i class="fas fa-check"></i> База данных (SQLite/PostgreSQL)</div>
+                <div class="feature-item"><i class="fas fa-check"></i> Адаптив под телефон</div>
+                <div class="feature-item"><i class="fas fa-check"></i> Форма заявок с уведомлениями</div>
+            </div>
+            <div class="service-price">
+                от 5 000 ₽
+                <small>СРОК: 2-7 ДНЕЙ</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Услуга 2 -->
+    <div class="service-block">
+        <div class="service-num">02</div>
+        <div class="service-content">
+            <h2><i class="fas fa-robot"></i> Telegram-боты</h2>
+            <p>Разрабатываю ботов для бизнеса: приём заявок, автоматизация, рассылки, уведомления. Бот поможет автоматизировать рутинные задачи.</p>
+            <div class="features-list">
+                <div class="feature-item"><i class="fas fa-check"></i> Боты для продаж</div>
+                <div class="feature-item"><i class="fas fa-check"></i> Приём заявок и уведомления</div>
+                <div class="feature-item"><i class="fas fa-check"></i> Боты-помощники (AI)</div>
+                <div class="feature-item"><i class="fas fa-check"></i> Интеграция с сайтом</div>
+                <div class="feature-item"><i class="fas fa-check"></i> Автоматизация рассылок</div>
+                <div class="feature-item"><i class="fas fa-check"></i> Оплата прямо в боте</div>
+            </div>
+            <div class="service-price">
+                от 8 000 ₽
+                <small>СРОК: 3-5 ДНЕЙ</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Услуга 3 -->
+    <div class="service-block">
+        <div class="service-num">03</div>
+        <div class="service-content">
+            <h2><i class="fas fa-gem"></i> Премиум-дизайн</h2>
+            <p>Элегантный дизайн в стиле люксовых брендов: бело-золотые оттенки, плавные анимации, дорогой вид. Ваш сайт будет выделяться.</p>
+            <div class="features-list">
+                <div class="feature-item"><i class="fas fa-check"></i> Индивидуальный дизайн</div>
+                <div class="feature-item"><i class="fas fa-check"></i> Анимации и эффекты</div>
+                <div class="feature-item"><i class="fas fa-check"></i> Переключение тем</div>
+                <div class="feature-item"><i class="fas fa-check"></i> Премиум-шрифты</div>
+                <div class="feature-item"><i class="fas fa-check"></i> Скруглённые углы и тени</div>
+                <div class="feature-item"><i class="fas fa-check"></i> Glassmorphism эффекты</div>
+            </div>
+            <div class="service-price">
+                от 5 000 ₽
+                <small>ВХОДИТ В САЙТ</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Услуга 4 -->
+    <div class="service-block">
+        <div class="service-num">04</div>
+        <div class="service-content">
+            <h2><i class="fas fa-database"></i> Веб-приложения</h2>
+            <p>Создаю сложные веб-приложения: CRM-системы, личные кабинеты, дашборды с аналитикой и графиками.</p>
+            <div class="features-list">
+                <div class="feature-item"><i class="fas fa-check"></i> CRM-системы</div>
+                <div class="feature-item"><i class="fas fa-check"></i> Личные кабинеты</div>
+                <div class="feature-item"><i class="fas fa-check"></i> Дашборды с графиками</div>
+                <div class="feature-item"><i class="fas fa-check"></i> Регистрация и вход</div>
+                <div class="feature-item"><i class="fas fa-check"></i> Экспорт в Excel/CSV</div>
+                <div class="feature-item"><i class="fas fa-check"></i> Роли пользователей</div>
+            </div>
+            <div class="service-price">
+                от 20 000 ₽
+                <small>СРОК: 10-14 ДНЕЙ</small>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- CTA -->
+<section class="cta">
+    <h2>Готовы <span>начать?</span></h2>
+    <p>Обсудим вашу задачу — предложу лучшее решение</p>
+    <div class="cta-buttons">
+        <a href="https://t.me/ponomera2" target="_blank" class="btn-gold">
+            <i class="fab fa-telegram"></i> Telegram
+        </a>
+        <a href="/contact" class="btn-outline">
+            <i class="fas fa-paper-plane"></i> Оставить заявку
+        </a>
+    </div>
+</section>
+
+<footer>
+    © 2026 ДАНИИЛ · ВЕБ-РАЗРАБОТЧИК
+</footer>
+
+</body>
+</html>
+'''
 PRICING_HTML = '''<!DOCTYPE html><html><head><title>Цены</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><style>*{margin:0;padding:0;box-sizing:border-box}body{background:#0b0f1a;color:#fff;font-family:Segoe UI,Arial,sans-serif;padding:40px 20px}.container{max-width:1100px;margin:0 auto;text-align:center}h1{font-size:42px;margin-bottom:15px}.sub{color:#aaa;margin-bottom:40px}.pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;text-align:left}.price-card{background:rgba(255,255,255,0.05);padding:35px;border-radius:25px;border:1px solid rgba(255,255,255,0.08);transition:0.4s;position:relative}.price-card:hover{transform:translateY(-10px);border-color:#6c63ff}.price-card.popular::before{content:'ПОПУЛЯРНЫЙ';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#ff6b6b;padding:4px 15px;border-radius:20px;font-size:11px;font-weight:700}.price-card h3{font-size:24px;margin-bottom:10px}.price-card .price{font-size:42px;color:#6c63ff;font-weight:700;margin:15px 0}.price-card ul{list-style:none;margin:20px 0}.price-card li{padding:8px 0;color:#ccc}.price-card li i{color:#22c55e;margin-right:10px}.btn{display:inline-block;background:linear-gradient(135deg,#6c63ff,#ff6b6b);color:#fff;padding:14px 30px;border-radius:50px;text-decoration:none;font-weight:700;width:100%;text-align:center;margin-top:15px}a{color:#6c63ff;text-decoration:none;display:block;margin-top:30px;text-align:center}</style></head><body><div class="container"><h1>💰 Цены</h1><p class="sub">Прозрачные цены без скрытых платежей</p><div class="pricing"><div class="price-card"><h3>Лендинг</h3><div class="price">5 000 ₽</div><ul><li><i class="fas fa-check"></i>Одностраничный сайт</li><li><i class="fas fa-check"></i>Адаптивный дизайн</li><li><i class="fas fa-check"></i>Форма заявки</li></ul><a href="/contact" class="btn">Заказать</a></div><div class="price-card popular"><h3>Сайт + Админка</h3><div class="price">15 000 ₽</div><ul><li><i class="fas fa-check"></i>Многостраничный</li><li><i class="fas fa-check"></i>Админ-панель</li><li><i class="fas fa-check"></i>База данных</li></ul><a href="/contact" class="btn">Заказать</a></div><div class="price-card"><h3>Сайт + Бот</h3><div class="price">25 000 ₽</div><ul><li><i class="fas fa-check"></i>Всё из «+ Админка»</li><li><i class="fas fa-check"></i>Telegram-бот</li><li><i class="fas fa-check"></i>Уведомления</li></ul><a href="/contact" class="btn">Заказать</a></div></div><a href="/">← На главную</a></div></body></html>'''
 
 BLOG_HTML = '''<!DOCTYPE html><html><head><title>Блог</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><style>*{margin:0;padding:0;box-sizing:border-box}body{background:#0b0f1a;color:#fff;font-family:Segoe UI,Arial,sans-serif;padding:40px 20px}.container{max-width:900px;margin:0 auto}.card{background:rgba(255,255,255,0.05);padding:40px;border-radius:25px;border:1px solid rgba(255,255,255,0.08)}h1{text-align:center}.post{border-bottom:1px solid rgba(255,255,255,0.06);padding:20px 0}.post:last-child{border-bottom:none}.post small{color:#666}.post p{color:#aaa}a{color:#6c63ff;text-decoration:none;display:block;margin-top:20px;text-align:center}</style></head><body><div class="container"><div class="card"><h1>📝 Блог</h1>{% for post in posts %}<div class="post"><h3>{{ post[1] }}</h3><small>{{ post[3] }}</small><p>{{ post[2][:200] }}...</p><a href="/post/{{ post[0] }}">Читать →</a></div>{% endfor %}{% if posts|length==0 %}<p>Нет записей</p>{% endif %}<a href="/">← На главную</a></div></div></body></html>'''
@@ -974,6 +1330,10 @@ def home():
 @app.route('/portfolio')
 def portfolio():
     return render_template_string(PORTFOLIO_HTML)
+
+@app.route('/services')
+def services():
+    return render_template_string(SERVICES_HTML)
 
 @app.route('/pricing')
 def pricing():
