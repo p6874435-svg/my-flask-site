@@ -41,6 +41,184 @@ def send_telegram(name, phone, message):
     except:
         pass
 
+
+PLAN_HTML = '''
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ plan.name }} — Даниил</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #faf8f5; color: #2a2a2a; line-height: 1.6; }
+.page-header { background: linear-gradient(180deg, #ffffff 0%, #faf8f5 100%); padding: 80px 20px 60px; text-align: center; border-bottom: 1px solid rgba(184,134,11,0.15); position: relative; }
+.back-link { position: absolute; top: 30px; left: 30px; color: #b8860b; text-decoration: none; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
+.top-label { font-size: 11px; letter-spacing: 6px; color: #b8860b; text-transform: uppercase; margin-bottom: 20px; font-weight: 600; }
+h1 { font-family: 'Playfair Display', serif; font-size: 72px; font-weight: 400; color: #2a2a2a; margin-bottom: 15px; }
+h1 span { color: #b8860b; font-style: italic; }
+.tagline { color: #6b6b6b; font-size: 20px; margin-bottom: 20px; }
+.price-big { font-family: 'Playfair Display', serif; font-size: 64px; color: #b8860b; margin: 30px 0; }
+.container { max-width: 1100px; margin: 0 auto; padding: 60px 30px; }
+.description { text-align: center; font-size: 18px; color: #6b6b6b; max-width: 700px; margin: 0 auto 60px; }
+.section-title { font-family: 'Playfair Display', serif; font-size: 36px; margin-bottom: 30px; text-align: center; color: #2a2a2a; }
+.section-title span { color: #b8860b; font-style: italic; }
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin-bottom: 80px; }
+.feature { background: white; padding: 35px 30px; border-radius: 12px; border: 1px solid rgba(184,134,11,0.15); transition: 0.3s; }
+.feature:hover { transform: translateY(-5px); border-color: #b8860b; box-shadow: 0 15px 40px rgba(184,134,11,0.1); }
+.feature-icon { width: 60px; height: 60px; border-radius: 12px; background: linear-gradient(135deg, #fdf4e3, #fef9f0); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 2px solid rgba(184,134,11,0.2); }
+.feature-icon i { font-size: 24px; color: #b8860b; }
+.feature h3 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 12px; color: #2a2a2a; }
+.feature p { color: #6b6b6b; font-size: 15px; line-height: 1.7; }
+.examples { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 60px; }
+.example { display: block; background: white; border-radius: 12px; overflow: hidden; transition: 0.4s; border: 1px solid rgba(184,134,11,0.15); text-decoration: none; color: inherit; }
+.example:hover { transform: translateY(-10px); border-color: #b8860b; box-shadow: 0 25px 60px rgba(184,134,11,0.2); }
+.example-preview { height: 220px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 22px; color: white; letter-spacing: 4px; background: linear-gradient(135deg, #d8c0ad, #9d765e); }
+.example-info { padding: 25px; }
+.example-info h4 { font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 8px; }
+.example-info p { color: #b8860b; font-size: 14px; }
+.cta { background: linear-gradient(135deg, #1a1a1a, #2a2a2a); padding: 70px 30px; text-align: center; color: white; border-radius: 20px; }
+.cta h2 { font-family: 'Playfair Display', serif; font-size: 42px; margin-bottom: 15px; color: white; }
+.cta h2 span { color: #d4a017; font-style: italic; }
+.cta p { color: #b0b0b0; margin-bottom: 30px; }
+.cta-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+.btn-gold { display: inline-flex; align-items: center; gap: 12px; padding: 18px 40px; background: #b8860b; color: white; text-decoration: none; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; font-weight: 500; border-radius: 4px; transition: 0.3s; }
+.btn-gold:hover { background: #d4a017; transform: translateY(-3px); box-shadow: 0 15px 30px rgba(184,134,11,0.4); }
+.btn-outline { display: inline-flex; align-items: center; gap: 12px; padding: 18px 40px; background: transparent; color: #d4a017; border: 1px solid #b8860b; text-decoration: none; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; font-weight: 500; border-radius: 4px; transition: 0.3s; }
+.btn-outline:hover { background: #b8860b; color: white; }
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s, transform 0.8s; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+@media (max-width: 768px) {
+    h1 { font-size: 48px; }
+    .price-big { font-size: 48px; }
+    .section-title { font-size: 28px; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+    <a href="/pricing" class="back-link">← Все тарифы</a>
+    <div class="top-label">Даниил · Веб-разработчик</div>
+    <h1>{{ plan.name }}</h1>
+    <p class="tagline">{{ plan.tagline }}</p>
+    <div class="price-big">{{ plan.price }}</div>
+</div>
+
+<div class="container">
+    <p class="description">{{ plan.description }}</p>
+
+    <h2 class="section-title reveal">Что <span>входит</span></h2>
+    <div class="features">
+        {% for f in plan.features %}
+        <div class="feature reveal">
+            <div class="feature-icon"><i class="fas {{ f.icon }}"></i></div>
+            <h3>{{ f.title }}</h3>
+            <p>{{ f.desc }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if plan.examples %}
+    <h2 class="section-title reveal">Примеры <span>работ</span></h2>
+    <div class="examples">
+        {% for ex in plan.examples %}
+        <a href="{{ ex.url }}" target="_blank" class="example reveal">
+            <div class="example-preview">{{ ex.preview }}</div>
+            <div class="example-info">
+                <h4>{{ ex.name }}</h4>
+                <p>Посмотреть →</p>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="cta reveal">
+        <h2>Готовы <span>заказать?</span></h2>
+        <p>Обсудим задачу — предложу лучшее решение</p>
+        <div class="cta-buttons">
+            <a href="/contact" class="btn-gold"><i class="fas fa-paper-plane"></i> Оставить заявку</a>
+            <a href="https://t.me/ponomera2" target="_blank" class="btn-outline"><i class="fab fa-telegram"></i> Telegram</a>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('active');
+        });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+});
+</script>
+
+</body>
+</html>
+'''
+
+
+# ===== ДАННЫЕ ТАРИФОВ =====
+PLANS = {
+    'landing': {
+        'name': 'Лендинг',
+        'price': '5 000 ₽',
+        'tagline': 'Одностраничный сайт для быстрого старта',
+        'description': 'Идеален для фрилансеров, мастеров, небольших услуг. Одна страница, которая продаёт.',
+        'features': [
+            {'title': 'Одностраничный сайт', 'desc': 'Сайт из одной страницы с блоками: Hero, Услуги, Цены, Контакты.', 'icon': 'fa-file'},
+            {'title': 'Адаптивный дизайн', 'desc': 'Сайт отлично выглядит на телефоне, планшете и компьютере.', 'icon': 'fa-mobile-alt'},
+            {'title': 'Форма заявки', 'desc': 'Клиент оставляет заявку — она приходит вам в Telegram.', 'icon': 'fa-paper-plane'},
+            {'title': 'Премиум-стиль', 'desc': 'Бело-золотые оттенки, элегантные шрифты, плавные анимации.', 'icon': 'fa-gem'},
+            {'title': 'Срок 2-3 дня', 'desc': 'Быстро и качественно. Через 2 дня сайт готов.', 'icon': 'fa-clock'},
+        ],
+        'examples': [
+            {'name': 'Пример лендинга', 'url': 'https://p6874435-svg.github.io/spa-demo/', 'preview': 'SPA STUDIO'},
+        ],
+    },
+    'site_admin': {
+        'name': 'Сайт + Админка',
+        'price': '15 000 ₽',
+        'tagline': 'Полноценный сайт с панелью управления',
+        'description': 'Для серьёзного бизнеса. Управляете контентом сами, без программиста.',
+        'features': [
+            {'title': 'Многостраничный сайт', 'desc': 'Главная, Услуги, Портфолио, Цены, Контакты, Блог.', 'icon': 'fa-layer-group'},
+            {'title': 'Админ-панель', 'desc': 'Личный кабинет: смотрите заявки, добавляете статьи.', 'icon': 'fa-cog'},
+            {'title': 'База данных', 'desc': 'Все заявки сохраняются. Экспорт в Excel.', 'icon': 'fa-database'},
+            {'title': 'Уведомления в Telegram', 'desc': 'Каждая заявка мгновенно приходит в Telegram.', 'icon': 'fa-telegram'},
+            {'title': 'Премиум-дизайн', 'desc': 'Дизайн в стиле люксовых брендов.', 'icon': 'fa-gem'},
+            {'title': 'Срок 5-7 дней', 'desc': 'Настраиваю всё под ключ.', 'icon': 'fa-clock'},
+        ],
+        'examples': [
+            {'name': 'Dr. Manifik — Minimal', 'url': 'https://p6874435-svg.github.io/manifik-minimal/manifikminimal.html', 'preview': 'MANIFIK'},
+            {'name': 'Dr. Manifik — Premium', 'url': 'https://p6874435-svg.github.io/manifik-minimal/manifikpremium.html', 'preview': 'PREMIUM'},
+            {'name': 'Ирина — косметолог', 'url': 'https://p6874435-svg.github.io/manifik-minimal/irina_kosmetolog_demo.html', 'preview': 'IRINA'},
+        ],
+    },
+    'site_bot': {
+        'name': 'Сайт + Бот',
+        'price': '25 000 ₽',
+        'tagline': 'Максимальный функционал для бизнеса',
+        'description': 'Всё из тарифа «Сайт + Админка» ПЛЮС Telegram-бот для автоматизации продаж.',
+        'features': [
+            {'title': 'Всё из «+ Админка»', 'desc': 'Многостраничный сайт, админка, БД, уведомления.', 'icon': 'fa-check-double'},
+            {'title': 'Telegram-бот', 'desc': 'Бот принимает заявки, отвечает 24/7.', 'icon': 'fa-robot'},
+            {'title': 'Автоматизация', 'desc': 'Рассылки, напоминания, статистика.', 'icon': 'fa-bolt'},
+            {'title': 'Оплата в боте', 'desc': 'Принимайте оплату прямо в Telegram.', 'icon': 'fa-credit-card'},
+            {'title': 'Уведомления', 'desc': 'Все заявки — в один Telegram.', 'icon': 'fa-bell'},
+            {'title': 'Срок 7-10 дней', 'desc': 'Полный цикл: сайт + бот + настройка.', 'icon': 'fa-clock'},
+        ],
+        'examples': [
+            {'name': 'Сайт + бот (демо)', 'url': 'https://my-flask-site-sext.onrender.com', 'preview': 'DANI.IL'},
+        ],
+    },
+}
+ 
 # ===== БАЗА ДАННЫХ =====
 def init_db():
     conn = sqlite3.connect('site.db')
@@ -294,7 +472,6 @@ footer p { color: #999; font-size: 13px; letter-spacing: 2px; margin-bottom: 20p
         <a href="/">Главная</a>
         <a href="/services">Услуги</a>
         <a href="/calculator">Калькулятор</a>
-        <a href="/portfolio">Портфолио</a>
         <a href="/pricing">Цены</a>
         <a href="/blog">Блог</a>
         <a href="/contact">Контакты</a>
@@ -1247,20 +1424,33 @@ body { font-family: 'Inter', sans-serif; background: #faf8f5; color: #2a2a2a; }
 h1 { font-family: 'Playfair Display', serif; font-size: 64px; font-weight: 400; color: #2a2a2a; margin-bottom: 15px; }
 h1 span { color: #b8860b; font-style: italic; }
 .subtitle { color: #6b6b6b; font-size: 18px; }
-.container { max-width: 1100px; margin: 0 auto; padding: 60px 30px; }
-.pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-.price-card { background: white; padding: 50px 40px; border: 1px solid rgba(184,134,11,0.15); transition: 0.5s; position: relative; border-radius: 8px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 60px 30px; }
+.pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; align-items: stretch; }
+.price-card { background: white; padding: 40px 35px; border: 1px solid rgba(184,134,11,0.15); transition: 0.5s; position: relative; border-radius: 12px; display: flex; flex-direction: column; }
 .price-card:hover { transform: translateY(-10px); border-color: #b8860b; box-shadow: 0 30px 60px rgba(184,134,11,0.15); }
-.price-card.popular::before { content: '★ ПОПУЛЯРНЫЙ'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #b8860b; color: white; padding: 5px 20px; font-size: 10px; letter-spacing: 3px; font-weight: 700; border-radius: 20px; }
-.price-card h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 20px; }
-.price-card .price { font-family: 'Playfair Display', serif; font-size: 52px; color: #b8860b; margin: 25px 0; }
-.price-card ul { list-style: none; margin: 30px 0; }
-.price-card li { padding: 12px 0; color: #6b6b6b; border-bottom: 1px solid rgba(184,134,11,0.15); font-size: 15px; }
-.price-card li:last-child { border-bottom: none; }
-.price-card li i { color: #b8860b; margin-right: 12px; }
-.btn { display: inline-block; background: transparent; color: #b8860b; padding: 15px 40px; border: 1px solid #b8860b; text-decoration: none; font-weight: 500; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; transition: 0.4s; cursor: pointer; border-radius: 4px; width: 100%; text-align: center; }
+.price-card.popular { border-color: #b8860b; box-shadow: 0 20px 50px rgba(184,134,11,0.15); }
+.price-card.popular::before { content: '★ ПОПУЛЯРНЫЙ'; position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: #b8860b; color: white; padding: 6px 22px; font-size: 10px; letter-spacing: 3px; font-weight: 700; border-radius: 20px; }
+.price-card h3 { font-family: 'Playfair Display', serif; font-size: 30px; margin-bottom: 8px; color: #2a2a2a; }
+.price-card .tagline { color: #6b6b6b; font-size: 14px; margin-bottom: 20px; min-height: 40px; }
+.price-card .price { font-family: 'Playfair Display', serif; font-size: 52px; color: #b8860b; margin-bottom: 8px; }
+.price-card .price-note { color: #999; font-size: 13px; margin-bottom: 30px; }
+.features-list { list-style: none; margin-bottom: 30px; flex-grow: 1; }
+.features-list li { padding: 14px 0; color: #2a2a2a; border-bottom: 1px solid rgba(184,134,11,0.08); font-size: 15px; display: flex; gap: 12px; align-items: flex-start; }
+.features-list li:last-child { border-bottom: none; }
+.features-list li i { color: #b8860b; font-size: 14px; margin-top: 5px; flex-shrink: 0; }
+.features-list li div { flex: 1; }
+.features-list li strong { display: block; margin-bottom: 3px; font-weight: 600; }
+.features-list li small { color: #6b6b6b; font-size: 13px; line-height: 1.5; }
+.btn-wrapper { display: flex; flex-direction: column; gap: 10px; margin-top: auto; }
+.btn { display: block; background: transparent; color: #b8860b; padding: 16px 30px; border: 1px solid #b8860b; text-decoration: none; font-weight: 500; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; transition: 0.4s; cursor: pointer; border-radius: 6px; text-align: center; }
 .btn:hover { background: #b8860b; color: white; }
-.footer-link { display: block; text-align: center; margin-top: 50px; color: #b8860b; text-decoration: none; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
+.btn-primary { background: #b8860b; color: white; }
+.btn-primary:hover { background: #d4a017; }
+.footer-link { display: block; text-align: center; margin-top: 60px; color: #b8860b; text-decoration: none; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
+@media (max-width: 768px) {
+    h1 { font-size: 42px; }
+    .pricing { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
@@ -1274,24 +1464,66 @@ h1 span { color: #b8860b; font-style: italic; }
 
 <div class="container">
     <div class="pricing">
+        
+        <!-- ЛЕНДИНГ -->
         <div class="price-card">
             <h3>Лендинг</h3>
+            <p class="tagline">Для быстрого старта и небольших услуг</p>
             <div class="price">5 000 ₽</div>
-            <ul><li><i class="fas fa-check"></i>Одностраничный сайт</li><li><i class="fas fa-check"></i>Адаптивный дизайн</li><li><i class="fas fa-check"></i>Форма заявки</li></ul>
-            <a href="/contact" class="btn">Заказать</a>
+            <div class="price-note">Срок: 2-3 дня</div>
+            <ul class="features-list">
+                <li><i class="fas fa-check"></i><div><strong>Одностраничный сайт</strong><small>Секции: Hero, Услуги, Цены, Контакты</small></div></li>
+                <li><i class="fas fa-check"></i><div><strong>Адаптивный дизайн</strong><small>Отлично выглядит на телефоне и ПК</small></div></li>
+                <li><i class="fas fa-check"></i><div><strong>Форма заявки</strong><small>Заявки приходят в Telegram</small></div></li>
+                <li><i class="fas fa-check"></i><div><strong>Премиум-стиль</strong><small>Бело-золотые оттенки, анимации</small></div></li>
+                <li><i class="fas fa-check"></i><div><strong>Базовое SEO</strong><small>Мета-теги для поисковиков</small></div></li>
+            </ul>
+            <div class="btn-wrapper">
+                <a href="/plan/landing" class="btn btn-primary">Подробнее →</a>
+                <a href="/contact" class="btn">Заказать</a>
+            </div>
         </div>
+
+        <!-- САЙТ + АДМИНКА -->
         <div class="price-card popular">
             <h3>Сайт + Админка</h3>
+            <p class="tagline">Для серьёзного бизнеса с управлением контентом</p>
             <div class="price">15 000 ₽</div>
-            <ul><li><i class="fas fa-check"></i>Многостраничный</li><li><i class="fas fa-check"></i>Админ-панель</li><li><i class="fas fa-check"></i>База данных</li></ul>
-            <a href="/contact" class="btn">Заказать</a>
+            <div class="price-note">Срок: 5-7 дней</div>
+            <ul class="features-list">
+                <li><i class="fas fa-check"></i><div><strong>Многостраничный сайт</strong><small>Главная, Услуги, Портфолио, Цены, Блог</small></div></li>
+                <li><i class="fas fa-check"></i><div><strong>Админ-панель</strong><small>Смотрите заявки, добавляйте статьи</small></div></li>
+                <li><i class="fas fa-check"></i><div><strong>База данных</strong><small>Все заявки сохраняются + экспорт в Excel</small></div></li>
+                <li><i class="fas fa-check"></i><div><strong>Уведомления в Telegram</strong><small>Каждая заявка — мгновенно в TG</small></div></li>
+                <li><i class="fas fa-check"></i><div><strong>Статистика и график</strong><small>Заявки за неделю, поиск, фильтры</small></div></li>
+                <li><i class="fas fa-check"></i><div><strong>Премиум-дизайн</strong><small>Анимации, 4 темы, бургер-меню</small></div></li>
+            </ul>
+            <div class="btn-wrapper">
+                <a href="/plan/site_admin" class="btn btn-primary">Подробнее →</a>
+                <a href="/contact" class="btn">Заказать</a>
+            </div>
         </div>
+
+        <!-- САЙТ + БОТ -->
         <div class="price-card">
             <h3>Сайт + Бот</h3>
+            <p class="tagline">Максимальная автоматизация продаж</p>
             <div class="price">25 000 ₽</div>
-            <ul><li><i class="fas fa-check"></i>Всё из «+ Админка»</li><li><i class="fas fa-check"></i>Telegram-бот</li><li><i class="fas fa-check"></i>Уведомления</li></ul>
-            <a href="/contact" class="btn">Заказать</a>
+            <div class="price-note">Срок: 7-10 дней</div>
+            <ul class="features-list">
+                <li><i class="fas fa-check"></i><div><strong>Всё из «Сайт + Админка»</strong><small>Многостраничный сайт, админка, БД, уведомления</small></div></li>
+                <li><i class="fas fa-check"></i><div><strong>Telegram-бот</strong><small>Приём заявок, ответы 24/7</small></div></li>
+                <li><i class="fas fa-check"></i><div><strong>Автоматизация</strong><small>Рассылки, напоминания, статистика</small></div></li>
+                <li><i class="fas fa-check"></i><div><strong>Оплата в боте</strong><small>Клиент покупает в 2 клика</small></div></li>
+                <li><i class="fas fa-check"></i><div><strong>Умный чат-бот на сайте</strong><small>Отвечает на 50+ вопросов</small></div></li>
+                <li><i class="fas fa-check"></i><div><strong>Приоритетная поддержка</strong><small>Отвечу первым, помогу с настройкой</small></div></li>
+            </ul>
+            <div class="btn-wrapper">
+                <a href="/plan/site_bot" class="btn btn-primary">Подробнее →</a>
+                <a href="/contact" class="btn">Заказать</a>
+            </div>
         </div>
+
     </div>
     <a href="/" class="footer-link">← На главную</a>
 </div>
@@ -1299,6 +1531,7 @@ h1 span { color: #b8860b; font-style: italic; }
 </body>
 </html>
 '''
+
 BLOG_HTML = '''
 <!DOCTYPE html>
 <html>
@@ -1716,6 +1949,13 @@ def sitemap():
     return xml, 200, {'Content-Type': 'application/xml'}
 
 
+
+@app.route('/plan/<plan_id>')
+def plan_detail(plan_id):
+    plan = PLANS.get(plan_id)
+    if not plan:
+        return redirect('/pricing')
+    return render_template_string(PLAN_HTML, plan=plan)
 
 @app.route('/pricing')
 def pricing():
