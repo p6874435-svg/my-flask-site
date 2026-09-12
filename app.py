@@ -360,6 +360,9 @@ footer p { color: #999; font-size: 13px; letter-spacing: 2px; margin-bottom: 20p
         <div style="text-align:center; margin-top:60px" class="reveal">
             <a href="/calculator" class="btn"><span>Рассчитать стоимость →</span></a>
         </div>
+    </div>
+</section>
+
 <section class="contact-section">
     <div class="container">
         <h2 class="reveal">Готовы обсудить <span>проект?</span></h2>
@@ -441,7 +444,77 @@ counters.forEach(c => observer.observe(c));
 
 ABOUT_HTML = '''<!DOCTYPE html><html><head><title>О нас</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Segoe UI,Arial,sans-serif;background:#0b0f1a;color:#fff;display:flex;justify-content:center;align-items:center;min-height:100vh;padding:20px}.card{background:rgba(255,255,255,0.05);border-radius:30px;border:1px solid rgba(255,255,255,0.08);max-width:700px;width:100%;padding:50px;text-align:center}.avatar i{font-size:100px;color:#6c63ff;background:rgba(108,99,255,0.15);padding:30px;border-radius:50%}h1{font-size:36px;margin:20px 0 10px}.subtitle{color:#6c63ff;font-size:18px}.bio{color:#aaa;line-height:1.8;margin:20px 0}.btn{display:inline-block;background:#6c63ff;color:#fff;padding:12px 30px;border-radius:50px;text-decoration:none;font-weight:600;margin-top:20px}</style></head><body><div class="card"><div class="avatar"><i class="fas fa-user-astronaut"></i></div><h1>👋 Привет, я Даниил!</h1><p class="subtitle">Веб-разработчик на Python</p><div class="bio">Создаю сайты, Telegram-ботов и веб-приложения. Люблю учиться новому и решать сложные задачи.</div><a href="/" class="btn">На главную</a></div></body></html>'''
 
-PORTFOLIO_HTML = '''<!DOCTYPE html><html><head><title>Портфолио</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><style>*{margin:0;padding:0;box-sizing:border-box}body{background:#0b0f1a;color:#fff;font-family:Segoe UI,Arial,sans-serif;padding:40px 20px}.container{max-width:1100px;margin:0 auto}.card{background:rgba(255,255,255,0.05);padding:40px;border-radius:25px;border:1px solid rgba(255,255,255,0.08)}h1{text-align:center;font-size:42px;margin-bottom:15px}.sub{text-align:center;color:#aaa;margin-bottom:40px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px}.item{display:block;background:rgba(255,255,255,0.05);border-radius:20px;overflow:hidden;transition:0.3s;border:1px solid rgba(255,255,255,0.05);text-decoration:none;color:inherit}.item:hover{transform:translateY(-10px);border-color:#6c63ff}.preview{height:200px;display:flex;align-items:center;justify-content:center;font:600 22px Georgia;color:#fff;letter-spacing:3px}.item:nth-child(1) .preview{background:linear-gradient(135deg,#d8c0ad,#9d765e)}.item:nth-child(2) .preview{background:linear-gradient(135deg,#eaded4,#c3a28c)}.item:nth-child(3) .preview{background:linear-gradient(135deg,#cfc2b4,#8f8173)}.item:nth-child(4) .preview{background:linear-gradient(135deg,#e8ddd5,#bda18e)}.info{padding:25px}.info h3{font-size:20px;margin-bottom:10px}.info p{color:#aaa;font-size:14px;margin-bottom:15px}.tags span{display:inline-block;background:rgba(108,99,255,0.15);color:#9d94ff;padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600;margin-right:5px}.back{color:#6c63ff;text-decoration:none;display:block;margin-top:20px;text-align:center}</style></head><body><div class="container"><div class="card"><h1>💼 Мои работы</h1><p class="sub">Демо-сайты, которые я сделал</p><div class="grid"><a href="https://p6874435-svg.github.io/spa-demo/" target="_blank" class="item"><div class="preview">SPA STUDIO</div><div class="info"><h3>Студия Евгении</h3><p>Сайт студии SPA-массажа</p><div class="tags"><span>Сайт</span><span>SPA</span></div></div></a><a href="https://p6874435-svg.github.io/manifik-minimal/manifikminimal.html" target="_blank" class="item"><div class="preview">MANIFIK</div><div class="info"><h3>Dr. Manifik — Minimal</h3><p>Клиника косметологии</p><div class="tags"><span>Сайт</span><span>Медицина</span></div></div></a><a href="https://p6874435-svg.github.io/manifik-minimal/manifikpremium.html" target="_blank" class="item"><div class="preview">PREMIUM</div><div class="info"><h3>Dr. Manifik — Premium</h3><p>Премиум-версия сайта</p><div class="tags"><span>Сайт</span><span>Премиум</span></div></div></a><a href="https://p6874435-svg.github.io/manifik-minimal/irina_kosmetolog_demo.html" target="_blank" class="item"><div class="preview">IRINA</div><div class="info"><h3>Ирина — косметолог</h3><p>Сайт косметолога из Ялты</p><div class="tags"><span>Сайт</span><span>Косметология</span></div></div></a></div><a href="/" class="back">← На главную</a></div></div></body></html>'''
+PORTFOLIO_HTML = '''
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Цены — Даниил</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #faf8f5; color: #2a2a2a; }
+.page-header { background: linear-gradient(180deg, #ffffff 0%, #faf8f5 100%); padding: 80px 20px 60px; text-align: center; border-bottom: 1px solid rgba(184,134,11,0.15); position: relative; }
+.page-header::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 200px; height: 1px; background: linear-gradient(90deg, transparent, #b8860b, transparent); }
+.back-link { position: absolute; top: 30px; left: 30px; color: #b8860b; text-decoration: none; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
+.top-label { font-size: 11px; letter-spacing: 6px; color: #b8860b; text-transform: uppercase; margin-bottom: 20px; font-weight: 600; }
+h1 { font-family: 'Playfair Display', serif; font-size: 64px; font-weight: 400; color: #2a2a2a; margin-bottom: 15px; }
+h1 span { color: #b8860b; font-style: italic; }
+.subtitle { color: #6b6b6b; font-size: 18px; }
+.container { max-width: 1100px; margin: 0 auto; padding: 60px 30px; }
+.pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+.price-card { background: white; padding: 50px 40px; border: 1px solid rgba(184,134,11,0.15); transition: 0.5s; position: relative; border-radius: 8px; }
+.price-card:hover { transform: translateY(-10px); border-color: #b8860b; box-shadow: 0 30px 60px rgba(184,134,11,0.15); }
+.price-card.popular::before { content: '★ ПОПУЛЯРНЫЙ'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #b8860b; color: white; padding: 5px 20px; font-size: 10px; letter-spacing: 3px; font-weight: 700; border-radius: 20px; }
+.price-card h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 20px; }
+.price-card .price { font-family: 'Playfair Display', serif; font-size: 52px; color: #b8860b; margin: 25px 0; }
+.price-card ul { list-style: none; margin: 30px 0; }
+.price-card li { padding: 12px 0; color: #6b6b6b; border-bottom: 1px solid rgba(184,134,11,0.15); font-size: 15px; }
+.price-card li:last-child { border-bottom: none; }
+.price-card li i { color: #b8860b; margin-right: 12px; }
+.btn { display: inline-block; background: transparent; color: #b8860b; padding: 15px 40px; border: 1px solid #b8860b; text-decoration: none; font-weight: 500; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; transition: 0.4s; cursor: pointer; border-radius: 4px; width: 100%; text-align: center; }
+.btn:hover { background: #b8860b; color: white; }
+.footer-link { display: block; text-align: center; margin-top: 50px; color: #b8860b; text-decoration: none; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+    <a href="/" class="back-link">← Главная</a>
+    <div class="top-label">Даниил · Веб-разработчик</div>
+    <h1>Мои <span>цены</span></h1>
+    <p class="subtitle">Прозрачные цены без скрытых платежей</p>
+</div>
+
+<div class="container">
+    <div class="pricing">
+        <div class="price-card">
+            <h3>Лендинг</h3>
+            <div class="price">5 000 ₽</div>
+            <ul><li><i class="fas fa-check"></i>Одностраничный сайт</li><li><i class="fas fa-check"></i>Адаптивный дизайн</li><li><i class="fas fa-check"></i>Форма заявки</li></ul>
+            <a href="/contact" class="btn">Заказать</a>
+        </div>
+        <div class="price-card popular">
+            <h3>Сайт + Админка</h3>
+            <div class="price">15 000 ₽</div>
+            <ul><li><i class="fas fa-check"></i>Многостраничный</li><li><i class="fas fa-check"></i>Админ-панель</li><li><i class="fas fa-check"></i>База данных</li></ul>
+            <a href="/contact" class="btn">Заказать</a>
+        </div>
+        <div class="price-card">
+            <h3>Сайт + Бот</h3>
+            <div class="price">25 000 ₽</div>
+            <ul><li><i class="fas fa-check"></i>Всё из «+ Админка»</li><li><i class="fas fa-check"></i>Telegram-бот</li><li><i class="fas fa-check"></i>Уведомления</li></ul>
+            <a href="/contact" class="btn">Заказать</a>
+        </div>
+    </div>
+    <a href="/" class="footer-link">← На главную</a>
+</div>
+
+</body>
+</html>
+'''
 CALCULATOR_HTML = '''
 <!DOCTYPE html>
 <html>
@@ -1156,22 +1229,436 @@ footer {
 </body>
 </html>
 '''
-PRICING_HTML = '''<!DOCTYPE html><html><head><title>Цены</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><style>*{margin:0;padding:0;box-sizing:border-box}body{background:#0b0f1a;color:#fff;font-family:Segoe UI,Arial,sans-serif;padding:40px 20px}.container{max-width:1100px;margin:0 auto;text-align:center}h1{font-size:42px;margin-bottom:15px}.sub{color:#aaa;margin-bottom:40px}.pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;text-align:left}.price-card{background:rgba(255,255,255,0.05);padding:35px;border-radius:25px;border:1px solid rgba(255,255,255,0.08);transition:0.4s;position:relative}.price-card:hover{transform:translateY(-10px);border-color:#6c63ff}.price-card.popular::before{content:'ПОПУЛЯРНЫЙ';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#ff6b6b;padding:4px 15px;border-radius:20px;font-size:11px;font-weight:700}.price-card h3{font-size:24px;margin-bottom:10px}.price-card .price{font-size:42px;color:#6c63ff;font-weight:700;margin:15px 0}.price-card ul{list-style:none;margin:20px 0}.price-card li{padding:8px 0;color:#ccc}.price-card li i{color:#22c55e;margin-right:10px}.btn{display:inline-block;background:linear-gradient(135deg,#6c63ff,#ff6b6b);color:#fff;padding:14px 30px;border-radius:50px;text-decoration:none;font-weight:700;width:100%;text-align:center;margin-top:15px}a{color:#6c63ff;text-decoration:none;display:block;margin-top:30px;text-align:center}</style></head><body><div class="container"><h1>💰 Цены</h1><p class="sub">Прозрачные цены без скрытых платежей</p><div class="pricing"><div class="price-card"><h3>Лендинг</h3><div class="price">5 000 ₽</div><ul><li><i class="fas fa-check"></i>Одностраничный сайт</li><li><i class="fas fa-check"></i>Адаптивный дизайн</li><li><i class="fas fa-check"></i>Форма заявки</li></ul><a href="/contact" class="btn">Заказать</a></div><div class="price-card popular"><h3>Сайт + Админка</h3><div class="price">15 000 ₽</div><ul><li><i class="fas fa-check"></i>Многостраничный</li><li><i class="fas fa-check"></i>Админ-панель</li><li><i class="fas fa-check"></i>База данных</li></ul><a href="/contact" class="btn">Заказать</a></div><div class="price-card"><h3>Сайт + Бот</h3><div class="price">25 000 ₽</div><ul><li><i class="fas fa-check"></i>Всё из «+ Админка»</li><li><i class="fas fa-check"></i>Telegram-бот</li><li><i class="fas fa-check"></i>Уведомления</li></ul><a href="/contact" class="btn">Заказать</a></div></div><a href="/">← На главную</a></div></body></html>'''
+PRICING_HTML = '''
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Цены — Даниил</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #faf8f5; color: #2a2a2a; }
+.page-header { background: linear-gradient(180deg, #ffffff 0%, #faf8f5 100%); padding: 80px 20px 60px; text-align: center; border-bottom: 1px solid rgba(184,134,11,0.15); position: relative; }
+.back-link { position: absolute; top: 30px; left: 30px; color: #b8860b; text-decoration: none; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
+.top-label { font-size: 11px; letter-spacing: 6px; color: #b8860b; text-transform: uppercase; margin-bottom: 20px; font-weight: 600; }
+h1 { font-family: 'Playfair Display', serif; font-size: 64px; font-weight: 400; color: #2a2a2a; margin-bottom: 15px; }
+h1 span { color: #b8860b; font-style: italic; }
+.subtitle { color: #6b6b6b; font-size: 18px; }
+.container { max-width: 1100px; margin: 0 auto; padding: 60px 30px; }
+.pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+.price-card { background: white; padding: 50px 40px; border: 1px solid rgba(184,134,11,0.15); transition: 0.5s; position: relative; border-radius: 8px; }
+.price-card:hover { transform: translateY(-10px); border-color: #b8860b; box-shadow: 0 30px 60px rgba(184,134,11,0.15); }
+.price-card.popular::before { content: '★ ПОПУЛЯРНЫЙ'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #b8860b; color: white; padding: 5px 20px; font-size: 10px; letter-spacing: 3px; font-weight: 700; border-radius: 20px; }
+.price-card h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 20px; }
+.price-card .price { font-family: 'Playfair Display', serif; font-size: 52px; color: #b8860b; margin: 25px 0; }
+.price-card ul { list-style: none; margin: 30px 0; }
+.price-card li { padding: 12px 0; color: #6b6b6b; border-bottom: 1px solid rgba(184,134,11,0.15); font-size: 15px; }
+.price-card li:last-child { border-bottom: none; }
+.price-card li i { color: #b8860b; margin-right: 12px; }
+.btn { display: inline-block; background: transparent; color: #b8860b; padding: 15px 40px; border: 1px solid #b8860b; text-decoration: none; font-weight: 500; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; transition: 0.4s; cursor: pointer; border-radius: 4px; width: 100%; text-align: center; }
+.btn:hover { background: #b8860b; color: white; }
+.footer-link { display: block; text-align: center; margin-top: 50px; color: #b8860b; text-decoration: none; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
+</style>
+</head>
+<body>
 
-BLOG_HTML = '''<!DOCTYPE html><html><head><title>Блог</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><style>*{margin:0;padding:0;box-sizing:border-box}body{background:#0b0f1a;color:#fff;font-family:Segoe UI,Arial,sans-serif;padding:40px 20px}.container{max-width:900px;margin:0 auto}.card{background:rgba(255,255,255,0.05);padding:40px;border-radius:25px;border:1px solid rgba(255,255,255,0.08)}h1{text-align:center}.post{border-bottom:1px solid rgba(255,255,255,0.06);padding:20px 0}.post:last-child{border-bottom:none}.post small{color:#666}.post p{color:#aaa}a{color:#6c63ff;text-decoration:none;display:block;margin-top:20px;text-align:center}</style></head><body><div class="container"><div class="card"><h1>📝 Блог</h1>{% for post in posts %}<div class="post"><h3>{{ post[1] }}</h3><small>{{ post[3] }}</small><p>{{ post[2][:200] }}...</p><a href="/post/{{ post[0] }}">Читать →</a></div>{% endfor %}{% if posts|length==0 %}<p>Нет записей</p>{% endif %}<a href="/">← На главную</a></div></div></body></html>'''
+<div class="page-header">
+    <a href="/" class="back-link">← Главная</a>
+    <div class="top-label">Даниил · Веб-разработчик</div>
+    <h1>Мои <span>цены</span></h1>
+    <p class="subtitle">Прозрачные цены без скрытых платежей</p>
+</div>
 
-POST_HTML = '''<!DOCTYPE html><html><head><title>Статья</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><style>*{margin:0;padding:0;box-sizing:border-box}body{background:#0b0f1a;color:#fff;font-family:Segoe UI,Arial,sans-serif;padding:40px 20px}.container{max-width:800px;margin:0 auto}.card{background:rgba(255,255,255,0.05);padding:40px;border-radius:25px;border:1px solid rgba(255,255,255,0.08)}h1{color:#fff}small{color:#666;display:block;margin:10px 0}p{color:#aaa;line-height:1.8}.btn{display:inline-block;background:#6c63ff;color:#fff;padding:10px 25px;border-radius:20px;text-decoration:none;margin-top:20px}</style></head><body><div class="container"><div class="card"><h1>{{ post[1] }}</h1><small>{{ post[3] }}</small><p>{{ post[2] }}</p><a href="/blog" class="btn">Все записи</a></div></div></body></html>'''
+<div class="container">
+    <div class="pricing">
+        <div class="price-card">
+            <h3>Лендинг</h3>
+            <div class="price">5 000 ₽</div>
+            <ul><li><i class="fas fa-check"></i>Одностраничный сайт</li><li><i class="fas fa-check"></i>Адаптивный дизайн</li><li><i class="fas fa-check"></i>Форма заявки</li></ul>
+            <a href="/contact" class="btn">Заказать</a>
+        </div>
+        <div class="price-card popular">
+            <h3>Сайт + Админка</h3>
+            <div class="price">15 000 ₽</div>
+            <ul><li><i class="fas fa-check"></i>Многостраничный</li><li><i class="fas fa-check"></i>Админ-панель</li><li><i class="fas fa-check"></i>База данных</li></ul>
+            <a href="/contact" class="btn">Заказать</a>
+        </div>
+        <div class="price-card">
+            <h3>Сайт + Бот</h3>
+            <div class="price">25 000 ₽</div>
+            <ul><li><i class="fas fa-check"></i>Всё из «+ Админка»</li><li><i class="fas fa-check"></i>Telegram-бот</li><li><i class="fas fa-check"></i>Уведомления</li></ul>
+            <a href="/contact" class="btn">Заказать</a>
+        </div>
+    </div>
+    <a href="/" class="footer-link">← На главную</a>
+</div>
 
-CONTACT_HTML = '''<!DOCTYPE html><html><head><title>Контакты</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><style>*{margin:0;padding:0;box-sizing:border-box}body{background:#0b0f1a;color:#fff;font-family:Segoe UI,Arial,sans-serif;display:flex;justify-content:center;align-items:center;min-height:100vh;padding:20px}.card{background:rgba(255,255,255,0.05);padding:40px;border-radius:30px;border:1px solid rgba(255,255,255,0.08);max-width:500px;width:100%}h1{text-align:center;margin-bottom:20px}h1 i{color:#6c63ff}input,textarea{width:100%;padding:14px;margin:10px 0;border-radius:12px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:#fff;font-size:16px}input:focus,textarea:focus{outline:none;border-color:#6c63ff}button{width:100%;padding:15px;border-radius:12px;border:none;background:linear-gradient(135deg,#6c63ff,#ff6b6b);color:#fff;font-size:18px;font-weight:600;cursor:pointer}a{color:#6c63ff;text-decoration:none;display:inline-block;margin-top:15px}</style></head><body><div class="card"><h1><i class="fas fa-paper-plane"></i> Напиши мне</h1><form method="POST"><input type="text" name="name" placeholder="Имя" required><input type="text" name="phone" placeholder="Телефон" required><textarea name="message" rows="5" placeholder="Сообщение" required></textarea><button type="submit">Отправить</button></form><a href="/">На главную</a></div></body></html>'''
+</body>
+</html>
+'''
+BLOG_HTML = '''
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Блог — Даниил</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #faf8f5; color: #2a2a2a; line-height: 1.6; }
+.page-header { background: linear-gradient(180deg, #ffffff 0%, #faf8f5 100%); padding: 80px 20px 60px; text-align: center; border-bottom: 1px solid rgba(184,134,11,0.15); position: relative; }
+.back-link { position: absolute; top: 30px; left: 30px; color: #b8860b; text-decoration: none; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
+.top-label { font-size: 11px; letter-spacing: 6px; color: #b8860b; text-transform: uppercase; margin-bottom: 20px; font-weight: 600; }
+h1 { font-family: 'Playfair Display', serif; font-size: 64px; font-weight: 400; color: #2a2a2a; margin-bottom: 15px; }
+h1 span { color: #b8860b; font-style: italic; }
+.subtitle { color: #6b6b6b; font-size: 18px; }
+.container { max-width: 900px; margin: 0 auto; padding: 60px 30px; }
+.post { background: white; padding: 35px; border-radius: 8px; border: 1px solid rgba(184,134,11,0.15); margin-bottom: 20px; transition: 0.3s; }
+.post:hover { border-color: #b8860b; box-shadow: 0 15px 40px rgba(184,134,11,0.1); }
+.post h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 10px; }
+.post small { color: #999; font-size: 13px; display: block; margin-bottom: 15px; }
+.post p { color: #6b6b6b; line-height: 1.8; margin-bottom: 15px; }
+.post a { color: #b8860b; text-decoration: none; font-weight: 500; }
+.post a:hover { text-decoration: underline; }
+.empty { text-align: center; padding: 60px 20px; color: #999; }
+.footer-link { display: block; text-align: center; margin-top: 50px; color: #b8860b; text-decoration: none; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
+</style>
+</head>
+<body>
 
-SUCCESS_HTML = '''<!DOCTYPE html><html><head><title>Спасибо!</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><style>*{margin:0;padding:0;box-sizing:border-box}body{background:#0b0f1a;color:#fff;font-family:Segoe UI,Arial,sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;padding:20px}.card{background:rgba(255,255,255,0.05);padding:50px;border-radius:30px;text-align:center;border:1px solid rgba(255,255,255,0.08);max-width:500px;width:100%}.card i{font-size:80px;color:#22c55e}h1{color:#fff}a{color:#6c63ff;text-decoration:none;font-weight:600}</style></head><body><div class="card"><i class="fas fa-check-circle"></i><h1>✅ Спасибо, {{ name }}!</h1><p>Ваша заявка принята.</p><br><a href="/">На главную</a></div></body></html>'''
+<div class="page-header">
+    <a href="/" class="back-link">← Главная</a>
+    <div class="top-label">Даниил · Веб-разработчик</div>
+    <h1>Мой <span>блог</span></h1>
+    <p class="subtitle">Статьи о разработке, дизайне и технологиях</p>
+</div>
 
+<div class="container">
+    {% for post in posts %}
+    <div class="post">
+        <h3>{{ post[1] }}</h3>
+        <small>{{ post[3] }}</small>
+        <p>{{ post[2][:200] }}...</p>
+        <a href="/post/{{ post[0] }}">Читать →</a>
+    </div>
+    {% endfor %}
+    {% if posts|length == 0 %}
+    <div class="empty">
+        <p>Пока нет записей. Заходи позже!</p>
+    </div>
+    {% endif %}
+    <a href="/" class="footer-link">← На главную</a>
+</div>
 
-CHAT_HTML = '''<!DOCTYPE html><html><head><title>Чат-бот</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><style>*{margin:0;padding:0;box-sizing:border-box}body{background:#0b0f1a;color:#fff;font-family:Segoe UI,Arial,sans-serif;display:flex;justify-content:center;align-items:center;min-height:100vh;padding:20px}.chat-container{background:rgba(255,255,255,0.05);padding:30px;border-radius:30px;border:1px solid rgba(255,255,255,0.08);max-width:500px;width:100%}.chat-box{background:rgba(255,255,255,0.03);border-radius:15px;padding:15px;min-height:350px;max-height:400px;overflow-y:auto;margin-bottom:15px}.msg{padding:10px 15px;border-radius:15px;margin:5px 0;max-width:80%}.bot-msg{background:linear-gradient(135deg,#6c63ff,#4a42d4);color:#fff}.user-msg{background:rgba(255,255,255,0.1);color:#fff;margin-left:auto;text-align:right}.chat-input{display:flex;gap:10px}.chat-input input{flex:1;padding:12px;border-radius:25px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:#fff;font-size:16px}.chat-input button{padding:12px 22px;border-radius:25px;border:none;background:linear-gradient(135deg,#6c63ff,#4a42d4);color:#fff;cursor:pointer;font-size:18px}.quick{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;justify-content:center}.quick button{background:rgba(108,99,255,0.15);border:1px solid rgba(108,99,255,0.2);color:#ccc;padding:6px 14px;border-radius:20px;cursor:pointer;font-size:13px}a{color:#6c63ff;text-decoration:none;display:block;margin-top:15px;text-align:center}</style></head><body><div class="chat-container"><h1 style="text-align:center;margin-bottom:15px"><i class="fas fa-robot" style="color:#6c63ff"></i> Чат-бот</h1><div class="chat-box" id="chatBox"><div class="msg bot-msg">🤖 Привет! Задай мне вопрос!</div></div><div class="quick"><button onclick="sendQuick('Привет')">👋 Привет</button><button onclick="sendQuick('Расскажи шутку')">😂 Шутка</button><button onclick="sendQuick('Что такое Python?')">🐍 Python</button><button onclick="sendQuick('Помоги с кодом')">💻 Код</button><button onclick="sendQuick('Курс валют')">💰 Валюты</button></div><div class="chat-input" style="margin-top:12px"><input type="text" id="question" placeholder="Напиши вопрос..."><button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button></div><a href="/">На главную</a></div><script>
-async function sendMessage(){const input=document.getElementById('question');const chatBox=document.getElementById('chatBox');const text=input.value.trim();if(!text)return;chatBox.innerHTML+=`<div class="msg user-msg">👤 ${text}</div>`;input.value='';chatBox.scrollTop=chatBox.scrollHeight;const r=await fetch('/ask',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:text})});const d=await r.json();chatBox.innerHTML+=`<div class="msg bot-msg">🤖 ${d.answer}</div>`;chatBox.scrollTop=chatBox.scrollHeight;}
-function sendQuick(t){document.getElementById('question').value=t;sendMessage();}
-document.getElementById('question').addEventListener('keypress',function(e){if(e.key==='Enter')sendMessage();});
-</script></body></html>'''
+</body>
+</html>
+'''
+POST_HTML = '''
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Статья — Даниил</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #faf8f5; color: #2a2a2a; line-height: 1.6; }
+.page-header { background: linear-gradient(180deg, #ffffff 0%, #faf8f5 100%); padding: 80px 20px 60px; text-align: center; border-bottom: 1px solid rgba(184,134,11,0.15); position: relative; }
+.back-link { position: absolute; top: 30px; left: 30px; color: #b8860b; text-decoration: none; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
+.top-label { font-size: 11px; letter-spacing: 6px; color: #b8860b; text-transform: uppercase; margin-bottom: 20px; font-weight: 600; }
+h1 { font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 400; color: #2a2a2a; margin-bottom: 15px; }
+.subtitle { color: #999; font-size: 14px; }
+.container { max-width: 800px; margin: 0 auto; padding: 60px 30px; }
+.card { background: white; padding: 50px; border-radius: 12px; border: 1px solid rgba(184,134,11,0.15); }
+.content { color: #2a2a2a; line-height: 1.9; font-size: 17px; }
+.btn { display: inline-block; background: transparent; color: #b8860b; padding: 15px 40px; border: 1px solid #b8860b; text-decoration: none; font-weight: 500; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; transition: 0.4s; border-radius: 4px; margin-top: 30px; }
+.btn:hover { background: #b8860b; color: white; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+    <a href="/blog" class="back-link">← Все статьи</a>
+    <div class="top-label">Даниил · Блог</div>
+    <h1>{{ post[1] }}</h1>
+    <p class="subtitle">{{ post[3] }}</p>
+</div>
+
+<div class="container">
+    <div class="card">
+        <div class="content">{{ post[2] }}</div>
+        <a href="/blog" class="btn">← Все статьи</a>
+    </div>
+</div>
+
+</body>
+</html>
+'''
+CONTACT_HTML = '''
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Контакты — Даниил</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #faf8f5; color: #2a2a2a; min-height: 100vh; }
+.page-header { background: linear-gradient(180deg, #ffffff 0%, #faf8f5 100%); padding: 80px 20px 60px; text-align: center; border-bottom: 1px solid rgba(184,134,11,0.15); position: relative; }
+.back-link { position: absolute; top: 30px; left: 30px; color: #b8860b; text-decoration: none; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
+.top-label { font-size: 11px; letter-spacing: 6px; color: #b8860b; text-transform: uppercase; margin-bottom: 20px; font-weight: 600; }
+h1 { font-family: 'Playfair Display', serif; font-size: 64px; font-weight: 400; color: #2a2a2a; margin-bottom: 15px; }
+h1 span { color: #b8860b; font-style: italic; }
+.subtitle { color: #6b6b6b; font-size: 18px; }
+.container { max-width: 600px; margin: 0 auto; padding: 60px 30px; }
+.card { background: white; padding: 50px; border-radius: 12px; border: 1px solid rgba(184,134,11,0.15); box-shadow: 0 20px 60px rgba(184,134,11,0.08); }
+.form-group { margin-bottom: 20px; }
+input, textarea { width: 100%; padding: 16px 20px; border: 1px solid rgba(184,134,11,0.3); border-radius: 8px; font-size: 15px; font-family: 'Inter', sans-serif; background: #faf8f5; color: #2a2a2a; transition: 0.3s; }
+input:focus, textarea:focus { outline: none; border-color: #b8860b; background: white; }
+textarea { min-height: 120px; resize: vertical; }
+button { width: 100%; padding: 18px; border: none; background: #b8860b; color: white; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; border-radius: 8px; cursor: pointer; transition: 0.3s; font-family: 'Inter', sans-serif; }
+button:hover { background: #d4a017; transform: translateY(-2px); box-shadow: 0 15px 30px rgba(184,134,11,0.3); }
+.contact-info { text-align: center; margin-top: 30px; padding-top: 30px; border-top: 1px solid rgba(184,134,11,0.15); }
+.contact-info a { color: #b8860b; text-decoration: none; font-size: 15px; display: inline-flex; align-items: center; gap: 8px; margin: 0 15px; }
+.contact-info a:hover { color: #d4a017; }
+.footer-link { display: block; text-align: center; margin-top: 30px; color: #b8860b; text-decoration: none; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+    <a href="/" class="back-link">← Главная</a>
+    <div class="top-label">Даниил · Веб-разработчик</div>
+    <h1>Напиши <span>мне</span></h1>
+    <p class="subtitle">Отвечу в течение часа</p>
+</div>
+
+<div class="container">
+    <div class="card">
+        <form method="POST">
+            <div class="form-group"><input type="text" name="name" placeholder="Ваше имя" required></div>
+            <div class="form-group"><input type="text" name="phone" placeholder="Телефон или Telegram" required></div>
+            <div class="form-group"><textarea name="message" placeholder="Опишите задачу..." required></textarea></div>
+            <button type="submit">Отправить заявку</button>
+        </form>
+        <div class="contact-info">
+            <a href="https://t.me/ponomera2" target="_blank"><i class="fab fa-telegram"></i> @ponomera2</a>
+            <a href="mailto:ponomarenkodana410@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+        </div>
+    </div>
+    <a href="/" class="footer-link">← На главную</a>
+</div>
+
+</body>
+</html>
+'''
+SUCCESS_HTML = '''
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Заявка отправлена — Даниил</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #faf8f5; color: #2a2a2a; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.card { background: white; padding: 70px 50px; border-radius: 20px; border: 1px solid rgba(184,134,11,0.15); text-align: center; max-width: 500px; box-shadow: 0 20px 60px rgba(184,134,11,0.1); }
+.icon { width: 100px; height: 100px; border-radius: 50%; background: linear-gradient(135deg, #d4f4dd, #a7e8b8); display: flex; align-items: center; justify-content: center; margin: 0 auto 30px; }
+.icon i { font-size: 48px; color: #22c55e; }
+h1 { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 400; color: #2a2a2a; margin-bottom: 15px; }
+h1 span { color: #b8860b; font-style: italic; }
+p { color: #6b6b6b; font-size: 17px; line-height: 1.7; margin-bottom: 30px; }
+.btn { display: inline-block; background: #b8860b; color: white; padding: 15px 40px; text-decoration: none; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; border-radius: 6px; transition: 0.3s; }
+.btn:hover { background: #d4a017; transform: translateY(-2px); box-shadow: 0 15px 30px rgba(184,134,11,0.3); }
+</style>
+</head>
+<body>
+
+<div class="card">
+    <div class="icon"><i class="fas fa-check"></i></div>
+    <h1>Спасибо, <span>{{ name }}</span>!</h1>
+    <p>Ваша заявка успешно отправлена.<br>Я свяжусь с вами в ближайшее время.</p>
+    <a href="/" class="btn">← На главную</a>
+</div>
+
+</body>
+</html>
+'''
+CHAT_HTML = '''
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Чат-бот — Даниил</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #faf8f5; color: #2a2a2a; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.chat-container { background: white; padding: 40px; border-radius: 20px; border: 1px solid rgba(184,134,11,0.15); max-width: 550px; width: 100%; box-shadow: 0 20px 60px rgba(184,134,11,0.1); }
+h1 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 400; text-align: center; margin-bottom: 25px; color: #2a2a2a; }
+h1 i { color: #b8860b; margin-right: 10px; }
+.chat-box { background: #faf8f5; border-radius: 15px; padding: 20px; min-height: 350px; max-height: 400px; overflow-y: auto; margin-bottom: 20px; border: 1px solid rgba(184,134,11,0.1); }
+.msg { padding: 12px 18px; border-radius: 15px; margin: 8px 0; max-width: 80%; line-height: 1.5; font-size: 15px; }
+.bot-msg { background: linear-gradient(135deg, #b8860b, #d4a017); color: white; border-bottom-left-radius: 4px; }
+.user-msg { background: #f0ede6; color: #2a2a2a; margin-left: auto; text-align: right; border-bottom-right-radius: 4px; }
+.quick { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; justify-content: center; }
+.quick button { background: white; border: 1px solid rgba(184,134,11,0.3); color: #b8860b; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 13px; transition: 0.3s; font-family: 'Inter', sans-serif; }
+.quick button:hover { background: #b8860b; color: white; }
+.chat-input { display: flex; gap: 10px; }
+.chat-input input { flex: 1; padding: 14px 20px; border: 1px solid rgba(184,134,11,0.3); border-radius: 25px; font-size: 15px; font-family: 'Inter', sans-serif; background: #faf8f5; }
+.chat-input input:focus { outline: none; border-color: #b8860b; background: white; }
+.chat-input button { padding: 14px 24px; border-radius: 25px; border: none; background: #b8860b; color: white; cursor: pointer; font-size: 16px; transition: 0.3s; }
+.chat-input button:hover { background: #d4a017; transform: scale(1.05); }
+.footer-link { display: block; text-align: center; margin-top: 20px; color: #b8860b; text-decoration: none; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
+</style>
+</head>
+<body>
+
+<div class="chat-container">
+    <h1><i class="fas fa-robot"></i>Чат-бот</h1>
+    <div class="chat-box" id="chatBox">
+        <div class="msg bot-msg">🤖 Привет! Задай мне вопрос о сайте, услугах или ценах!</div>
+    </div>
+    <div class="quick">
+        <button onclick="sendQuick('Привет')">👋 Привет</button>
+        <button onclick="sendQuick('Сколько стоит сайт?')">💰 Цены</button>
+        <button onclick="sendQuick('Какие услуги?')">🛠️ Услуги</button>
+        <button onclick="sendQuick('Как связаться?')">📞 Контакты</button>
+        <button onclick="sendQuick('Расскажи шутку')">😂 Шутка</button>
+    </div>
+    <div class="chat-input">
+        <input type="text" id="question" placeholder="Напиши вопрос..." onkeypress="if(event.key==='Enter') sendMessage()">
+        <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+    </div>
+    <a href="/" class="footer-link">← На главную</a>
+</div>
+
+<script>
+async function sendMessage() {
+    const input = document.getElementById('question');
+    const chatBox = document.getElementById('chatBox');
+    const text = input.value.trim();
+    if (!text) return;
+    chatBox.innerHTML += '<div class="msg user-msg">👤 ' + text + '</div>';
+    input.value = '';
+    chatBox.scrollTop = chatBox.scrollHeight;
+    try {
+        const r = await fetch('/ask', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({question: text})
+        });
+        const d = await r.json();
+        chatBox.innerHTML += '<div class="msg bot-msg">🤖 ' + d.answer + '</div>';
+        chatBox.scrollTop = chatBox.scrollHeight;
+    } catch {
+        chatBox.innerHTML += '<div class="msg bot-msg">⚠️ Ошибка. Попробуй ещё раз.</div>';
+    }
+}
+function sendQuick(t) {
+    document.getElementById('question').value = t;
+    sendMessage();
+}
+</script>
+
+</body>
+</html>
+'''
+CHAT_HTML = '''
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Чат-бот — Даниил</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #faf8f5; color: #2a2a2a; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.chat-container { background: white; padding: 40px; border-radius: 20px; border: 1px solid rgba(184,134,11,0.15); max-width: 550px; width: 100%; box-shadow: 0 20px 60px rgba(184,134,11,0.1); }
+h1 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 400; text-align: center; margin-bottom: 25px; color: #2a2a2a; }
+h1 i { color: #b8860b; margin-right: 10px; }
+.chat-box { background: #faf8f5; border-radius: 15px; padding: 20px; min-height: 350px; max-height: 400px; overflow-y: auto; margin-bottom: 20px; border: 1px solid rgba(184,134,11,0.1); }
+.msg { padding: 12px 18px; border-radius: 15px; margin: 8px 0; max-width: 80%; line-height: 1.5; font-size: 15px; }
+.bot-msg { background: linear-gradient(135deg, #b8860b, #d4a017); color: white; border-bottom-left-radius: 4px; }
+.user-msg { background: #f0ede6; color: #2a2a2a; margin-left: auto; text-align: right; border-bottom-right-radius: 4px; }
+.quick { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; justify-content: center; }
+.quick button { background: white; border: 1px solid rgba(184,134,11,0.3); color: #b8860b; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 13px; transition: 0.3s; font-family: 'Inter', sans-serif; }
+.quick button:hover { background: #b8860b; color: white; }
+.chat-input { display: flex; gap: 10px; }
+.chat-input input { flex: 1; padding: 14px 20px; border: 1px solid rgba(184,134,11,0.3); border-radius: 25px; font-size: 15px; font-family: 'Inter', sans-serif; background: #faf8f5; }
+.chat-input input:focus { outline: none; border-color: #b8860b; background: white; }
+.chat-input button { padding: 14px 24px; border-radius: 25px; border: none; background: #b8860b; color: white; cursor: pointer; font-size: 16px; transition: 0.3s; }
+.chat-input button:hover { background: #d4a017; transform: scale(1.05); }
+.footer-link { display: block; text-align: center; margin-top: 20px; color: #b8860b; text-decoration: none; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
+</style>
+</head>
+<body>
+
+<div class="chat-container">
+    <h1><i class="fas fa-robot"></i>Чат-бот</h1>
+    <div class="chat-box" id="chatBox">
+        <div class="msg bot-msg">🤖 Привет! Задай мне вопрос о сайте, услугах или ценах!</div>
+    </div>
+    <div class="quick">
+        <button onclick="sendQuick('Привет')">👋 Привет</button>
+        <button onclick="sendQuick('Сколько стоит сайт?')">💰 Цены</button>
+        <button onclick="sendQuick('Какие услуги?')">🛠️ Услуги</button>
+        <button onclick="sendQuick('Как связаться?')">📞 Контакты</button>
+        <button onclick="sendQuick('Расскажи шутку')">😂 Шутка</button>
+    </div>
+    <div class="chat-input">
+        <input type="text" id="question" placeholder="Напиши вопрос..." onkeypress="if(event.key==='Enter') sendMessage()">
+        <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+    </div>
+    <a href="/" class="footer-link">← На главную</a>
+</div>
+
+<script>
+async function sendMessage() {
+    const input = document.getElementById('question');
+    const chatBox = document.getElementById('chatBox');
+    const text = input.value.trim();
+    if (!text) return;
+    chatBox.innerHTML += '<div class="msg user-msg">👤 ' + text + '</div>';
+    input.value = '';
+    chatBox.scrollTop = chatBox.scrollHeight;
+    try {
+        const r = await fetch('/ask', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({question: text})
+        });
+        const d = await r.json();
+        chatBox.innerHTML += '<div class="msg bot-msg">🤖 ' + d.answer + '</div>';
+        chatBox.scrollTop = chatBox.scrollHeight;
+    } catch {
+        chatBox.innerHTML += '<div class="msg bot-msg">⚠️ Ошибка. Попробуй ещё раз.</div>';
+    }
+}
+function sendQuick(t) {
+    document.getElementById('question').value = t;
+    sendMessage();
+}
+</script>
+
+</body>
+</html>
+'''
 
 # ===== МАРШРУТЫ =====
 @app.route('/')
@@ -1561,37 +2048,50 @@ def ask():
 
 
 # ===== ЛОГИН В АДМИНКУ =====
-LOGIN_HTML = '''<!DOCTYPE html>
-<html><head><title>Вход в админку</title>
+LOGIN_HTML = '''
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Вход в админку — Даниил</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(135deg,#0b0f1a,#1a1a2e);display:flex;justify-content:center;align-items:center;min-height:100vh;padding:20px;color:#fff}
-.card{background:rgba(255,255,255,0.05);padding:50px 40px;border-radius:30px;border:1px solid rgba(255,255,255,0.08);max-width:450px;width:100%;text-align:center}
-.card i{font-size:70px;color:#6c63ff;margin-bottom:20px}
-h1{font-size:28px;margin-bottom:10px}
-.sub{color:#888;margin-bottom:25px;font-size:14px}
-input{width:100%;padding:15px;margin:10px 0;border-radius:12px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:#fff;font-size:16px}
-input:focus{outline:none;border-color:#6c63ff}
-button{width:100%;padding:15px;margin-top:15px;border-radius:12px;border:none;background:linear-gradient(135deg,#6c63ff,#ff6b6b);color:#fff;font-size:17px;font-weight:600;cursor:pointer}
-button:hover{transform:scale(1.02)}
-a{color:#6c63ff;text-decoration:none;display:inline-block;margin-top:15px;font-size:14px}
-.error{background:rgba(255,107,107,0.15);color:#ff6b6b;padding:10px;border-radius:10px;margin-bottom:15px;font-size:14px}
-</style></head>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #faf8f5; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.card { background: white; padding: 60px 50px; border-radius: 20px; border: 1px solid rgba(184,134,11,0.15); max-width: 450px; width: 100%; text-align: center; box-shadow: 0 20px 60px rgba(184,134,11,0.1); }
+.icon { width: 90px; height: 90px; border-radius: 50%; background: linear-gradient(135deg, #fdf4e3, #fef9f0); display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; border: 2px solid rgba(184,134,11,0.2); }
+.icon i { font-size: 40px; color: #b8860b; }
+h1 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 400; color: #2a2a2a; margin-bottom: 10px; }
+h1 span { color: #b8860b; font-style: italic; }
+.subtitle { color: #6b6b6b; font-size: 14px; margin-bottom: 30px; }
+.error { background: rgba(220,38,38,0.08); color: #dc2626; padding: 12px; border-radius: 8px; margin-bottom: 20px; font-size: 14px; border-left: 3px solid #dc2626; text-align: left; }
+input { width: 100%; padding: 16px 20px; margin-bottom: 15px; border: 1px solid rgba(184,134,11,0.3); border-radius: 8px; font-size: 15px; font-family: 'Inter', sans-serif; background: #faf8f5; color: #2a2a2a; }
+input:focus { outline: none; border-color: #b8860b; background: white; }
+button { width: 100%; padding: 18px; border: none; background: #b8860b; color: white; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; border-radius: 8px; cursor: pointer; font-family: 'Inter', sans-serif; }
+button:hover { background: #d4a017; transform: translateY(-2px); box-shadow: 0 15px 30px rgba(184,134,11,0.3); }
+.back { display: inline-block; margin-top: 25px; color: #b8860b; text-decoration: none; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
+</style>
+</head>
 <body>
+
 <div class="card">
-    <i class="fas fa-lock"></i>
-    <h1>Вход в админку</h1>
-    <p class="sub">Только для администратора</p>
+    <div class="icon"><i class="fas fa-lock"></i></div>
+    <h1>Вход в <span>админку</span></h1>
+    <p class="subtitle">Только для администратора</p>
     {% if error %}<div class="error">{{ error }}</div>{% endif %}
     <form method="POST">
         <input type="text" name="username" placeholder="Логин" required autofocus>
         <input type="password" name="password" placeholder="Пароль" required>
         <button type="submit"><i class="fas fa-sign-in-alt"></i> Войти</button>
     </form>
-    <a href="/">← На главную</a>
+    <a href="/" class="back">← На главную</a>
 </div>
-</body></html>'''
+
+</body>
+</html>
+'''
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -1936,6 +2436,7 @@ body { font-family: 'Inter', sans-serif; background: #faf8f5; color: #2a2a2a; }
 </body>
 </html>
 '''
+
 if __name__ == '__main__':
     import os
     port = int(os.environ.get("PORT", 5000))
